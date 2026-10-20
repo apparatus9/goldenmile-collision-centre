@@ -13,6 +13,7 @@
   margin: 0;              /* beats theme section/ul/figure margins   */
   padding: 0;
   font-family: inherit;   /* beats a theme-wide * { font-family }    */
+  font-size: inherit;     /* beats a theme p { font-size }           */
   line-height: inherit;   /* beats a theme p { line-height }         */
   border: 0;
   border-radius: 0;
@@ -25,6 +26,16 @@
   min-width: 0;
 }
 #gmcc ul, #gmcc ol { list-style: none; }
+
+/* Most of our text has no font-size of its own - it inherits from the wrapper -
+   so there is no declaration for the build to mark !important, and a theme rule
+   such as  #main p { font-size: 24px !important }  lands unopposed. Naming the
+   elements matches that specificity, and we are later in the document, so we
+   win the tie. Our own class rules are more specific again and still win here. */
+#gmcc p, #gmcc li, #gmcc dt, #gmcc dd, #gmcc span, #gmcc a,
+#gmcc strong, #gmcc em, #gmcc blockquote, #gmcc div, #gmcc label,
+#gmcc article, #gmcc section, #gmcc figure, #gmcc h1, #gmcc h2,
+#gmcc h3, #gmcc h4 { font-size: inherit !important; }
 #gmcc blockquote::before, #gmcc blockquote::after,
 #gmcc q::before, #gmcc q::after { content: none; }
 #gmcc a { text-decoration: none; }
@@ -81,8 +92,8 @@
   margin: 0;
   background: var(--white);
   color: var(--body);
-  font-family: var(--ff-body);
-  font-size: 17px;
+  font-family: var(--ff-body) !important;
+  font-size: 17px !important;
   font-weight: 400;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -91,7 +102,7 @@
 #gmcc img { max-width: 100%; display: block; height: auto; }
 
 #gmcc h1, #gmcc h2, #gmcc h3 {
-  font-family: var(--ff-display);
+  font-family: var(--ff-display) !important;
   color: var(--ink);
   line-height: 1.15;
   margin: 0 0 .6em;
@@ -99,8 +110,8 @@
   letter-spacing: -.01em;
 }
 
-#gmcc h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); }
-#gmcc h3 { font-size: 1.1rem; }
+#gmcc h2 { font-size: clamp(28px, 3.2vw, 38.4px) !important; }
+#gmcc h3 { font-size: 17.6px !important; }
 
 #gmcc p { margin: 0 0 1.1em; }
 
@@ -115,9 +126,9 @@
 #gmcc .gm-skip {
   position: absolute; left: -9999px;
   background: var(--orange-fill); color: #fff;
-  padding: .7rem 1.1rem; z-index: 999; font-weight: 600;
+  padding: 11.2px 17.6px; z-index: 999; font-weight: 600;
 }
-#gmcc .gm-skip:focus { left: 1rem; top: 1rem; }
+#gmcc .gm-skip:focus { left: 16px; top: 16px; }
 
 #gmcc .gm-wrap {
   width: 100%;
@@ -139,13 +150,13 @@
 
 /* ------------------------------------------------------------- eyebrow -- */
 #gmcc .gm-eyebrow {
-  font-family: var(--ff-display);
-  font-size: .78rem;
+  font-family: var(--ff-display) !important;
+  font-size: 12.48px !important;
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--orange-text);
-  margin: 0 0 .85rem;
+  margin: 0 0 13.6px;
 }
 #gmcc .gm-eyebrow--light { color: var(--orange); }
 #gmcc .gm-eyebrow.gm-center { text-align: center; }
@@ -155,12 +166,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
-  font-family: var(--ff-display);
-  font-size: .95rem;
+  gap: 8px;
+  font-family: var(--ff-display) !important;
+  font-size: 15.2px !important;
   font-weight: 600;
   letter-spacing: .03em;
-  padding: .95rem 1.7rem;
+  padding: 15.2px 27.2px;
   border: 2px solid transparent;
   border-radius: var(--radius);
   cursor: pointer;
@@ -178,26 +189,26 @@
 #gmcc .gm-utility {
   background: var(--ink-deep);
   color: #c9c9c9;
-  font-size: .82rem;
+  font-size: 13.12px !important;
 }
 #gmcc .gm-utility__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: .4rem 1.5rem;
+  gap: 6.4px 24px;
   align-items: center;
   justify-content: space-between;
   min-height: 42px;
-  padding-block: .4rem;
+  padding-block: 6.4px;
 }
 #gmcc .gm-utility p { margin: 0; }
-#gmcc .gm-utility__addr { display: flex; align-items: center; gap: .5rem; }
-#gmcc .gm-utility__emg { display: flex; align-items: center; gap: .6rem; }
+#gmcc .gm-utility__addr { display: flex; align-items: center; gap: 8px; }
+#gmcc .gm-utility__emg { display: flex; align-items: center; gap: 9.6px; }
 #gmcc .gm-utility__label {
-  font-family: var(--ff-display);
+  font-family: var(--ff-display) !important;
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  font-size: .72rem;
+  font-size: 11.52px !important;
   color: var(--orange);
 }
 #gmcc .gm-utility__emg a { color: #fff; font-weight: 600; }
@@ -213,7 +224,7 @@
 #gmcc .gm-header__inner {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 24px;
   min-height: 112px;
 }
 
@@ -221,7 +232,7 @@
 #gmcc .gm-brand {
   display: flex;
   align-items: center;
-  gap: .9rem;
+  gap: 14.4px;
   color: var(--ink);
   text-decoration: none;
   margin-right: auto;
@@ -234,8 +245,8 @@
 }
 #gmcc .gm-brand__rule { width: 1px; height: 54px; background: var(--line); }
 #gmcc .gm-brand__unit {
-  font-family: var(--ff-display);
-  font-size: .72rem;
+  font-family: var(--ff-display) !important;
+  font-size: 11.52px !important;
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -243,15 +254,15 @@
   line-height: 1.35;
 }
 
-#gmcc .gm-nav { display: flex; align-items: center; gap: 1.6rem; }
+#gmcc .gm-nav { display: flex; align-items: center; gap: 25.6px; }
 #gmcc .gm-nav > a {
-  font-family: var(--ff-display);
-  font-size: .86rem;
+  font-family: var(--ff-display) !important;
+  font-size: 13.76px !important;
   font-weight: 600;
   letter-spacing: .04em;
   color: var(--ink);
   position: relative;
-  padding-block: .4rem;
+  padding-block: 6.4px;
 }
 #gmcc .gm-nav > a:not(.gm-btn):hover { color: var(--orange); text-decoration: none; }
 #gmcc .gm-nav > a:not(.gm-btn)::after {
@@ -270,10 +281,10 @@
 #gmcc .gm-header__tel {
   display: flex;
   align-items: center;
-  gap: .55rem;
-  font-family: var(--ff-display);
+  gap: 8.8px;
+  font-family: var(--ff-display) !important;
   font-weight: 700;
-  font-size: 1.02rem;
+  font-size: 16.32px !important;
   color: var(--ink);
   white-space: nowrap;
 }
@@ -323,12 +334,12 @@
 }
 #gmcc .gm-hero__inner {
   position: relative;
-  padding-block: 5.5rem;
+  padding-block: 88px;
   max-width: calc(var(--wrap) + 0px);
 }
 #gmcc .gm-hero__title {
   color: #fff;
-  font-size: clamp(2.3rem, 5.6vw, 4rem);
+  font-size: clamp(36.8px, 5.6vw, 64px) !important;
   line-height: 1.04;
   letter-spacing: -.02em;
   max-width: 21ch;
@@ -337,19 +348,19 @@
 #gmcc .gm-hero__title span { color: var(--orange); }
 #gmcc .gm-hero__lede {
   color: rgba(255,255,255,.88);
-  font-size: 1.12rem;
+  font-size: 17.92px !important;
   font-weight: 300;
   max-width: 54ch;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
-#gmcc .gm-hero__actions { display: flex; flex-wrap: wrap; gap: .85rem; }
+#gmcc .gm-hero__actions { display: flex; flex-wrap: wrap; gap: 13.6px; }
 #gmcc .gm-hero__cert {
-  margin: 2.2rem 0 0;
+  margin: 35.2px 0 0;
   display: flex;
   align-items: center;
-  gap: .6rem;
-  font-family: var(--ff-display);
-  font-size: .78rem;
+  gap: 9.6px;
+  font-family: var(--ff-display) !important;
+  font-size: 12.48px !important;
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -365,19 +376,19 @@
 #gmcc .gm-trust__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  padding-block: 3rem;
+  gap: 32px;
+  padding-block: 48px;
 }
 #gmcc .gm-trust__item h3 {
-  font-size: .95rem;
+  font-size: 15.2px !important;
   letter-spacing: .02em;
-  margin: 0 0 .35rem;
+  margin: 0 0 5.6px;
 }
-#gmcc .gm-trust__item p { margin: 0; font-size: .92rem; color: var(--muted); }
+#gmcc .gm-trust__item p { margin: 0; font-size: 14.72px !important; color: var(--muted); }
 #gmcc .gm-trust__i {
   width: 34px !important; height: 34px !important;
   display: block;
-  margin-bottom: .9rem;
+  margin-bottom: 14.4px;
   fill: none;
   stroke: var(--orange);
   stroke-width: 2;
@@ -386,13 +397,13 @@
 }
 
 /* ===================================================== sections ========= */
-#gmcc .gm-section { padding-block: clamp(4rem, 8vw, 6.5rem); }
+#gmcc .gm-section { padding-block: clamp(64px, 8vw, 104px); }
 #gmcc .gm-section--alt { background: var(--surface); }
 
 #gmcc .gm-split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
-  gap: clamp(2.5rem, 6vw, 5rem);
+  gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
 #gmcc .gm-split--rev .gm-split__media { order: 2; }
@@ -408,43 +419,43 @@
 #gmcc .gm-tag {
   position: absolute;
   left: 0;
-  bottom: 2.2rem;
+  bottom: 35.2px;
   background: var(--orange-fill);
   color: #fff;
-  font-family: var(--ff-display);
-  font-size: .82rem;
+  font-family: var(--ff-display) !important;
+  font-size: 13.12px !important;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
-  padding: .85rem 2rem .85rem 1.6rem;
+  padding: 13.6px 32px 13.6px 25.6px;
 }
 
 #gmcc .gm-split__body h2 { margin-bottom: .7em; }
-#gmcc .gm-lead { font-size: 1.06rem; }
+#gmcc .gm-lead { font-size: 16.96px !important; }
 #gmcc .gm-lead strong { color: var(--ink); font-weight: 600; }
 
 /* TRUST / RELIABILITY / QUALITY */
-#gmcc .gm-pillars { list-style: none; margin: 2.2rem 0 0; padding: 0; }
+#gmcc .gm-pillars { list-style: none; margin: 35.2px 0 0; padding: 0; }
 #gmcc .gm-pillars li {
   position: relative;
-  padding-left: 1.6rem;
-  margin-bottom: 1.4rem;
+  padding-left: 25.6px;
+  margin-bottom: 22.4px;
 }
 #gmcc .gm-pillars li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: .5rem;
+  top: 8px;
   width: 9px; height: 9px;
   border-radius: 50%;
   background: var(--orange);
 }
 #gmcc .gm-pillars h3 {
-  font-size: .95rem;
+  font-size: 15.2px !important;
   letter-spacing: .13em;
   text-transform: uppercase;
   color: var(--orange-text);
-  margin: 0 0 .2rem;
+  margin: 0 0 3.2px;
 }
 #gmcc .gm-pillars p { margin: 0; }
 
@@ -452,34 +463,34 @@
 #gmcc .gm-services {
   background: var(--grey-panel-dk);
   color: #fff;
-  padding-block: clamp(4rem, 8vw, 6.5rem);
+  padding-block: clamp(64px, 8vw, 104px);
 }
 #gmcc .gm-services .gm-eyebrow { color: #fff; }
 #gmcc .gm-services__title {
   color: #fff;
   text-align: center;
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-size: clamp(25.6px, 3vw, 33.6px) !important;
   letter-spacing: .14em;
   text-transform: uppercase;
   font-weight: 600;
-  margin-bottom: 3.2rem;
+  margin-bottom: 51.2px;
 }
 #gmcc .gm-services__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.4rem;
+  gap: 38.4px;
 }
 #gmcc .gm-svc {
   background: rgba(0,0,0,.12);
   border: 1px solid rgba(255,255,255,.22);
-  padding: 2.4rem 1.9rem;
+  padding: 38.4px 30.4px;
   transition: background-color .2s ease, transform .2s ease;
 }
 #gmcc .gm-svc:hover { background: rgba(0,0,0,.2); transform: translateY(-3px); }
 #gmcc .gm-svc__i {
   width: 58px !important; height: 58px !important;
   display: block;
-  margin-bottom: 1.4rem;
+  margin-bottom: 22.4px;
   fill: none;
   stroke: #fff;
   stroke-width: 2.1;
@@ -488,16 +499,16 @@
 }
 #gmcc .gm-svc h3 {
   color: #fff;
-  font-size: 1.08rem;
+  font-size: 17.28px !important;
   letter-spacing: .06em;
   text-transform: uppercase;
-  margin-bottom: .6rem;
+  margin-bottom: 9.6px;
 }
-#gmcc .gm-svc p { color: #f1f1f1; margin: 0; font-size: .97rem; }
+#gmcc .gm-svc p { color: #f1f1f1; margin: 0; font-size: 15.52px !important; }
 
 #gmcc .gm-services__foot {
   text-align: center;
-  margin: 3rem 0 0;
+  margin: 48px 0 0;
   color: #fff;
 }
 #gmcc .gm-services__foot a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
@@ -524,16 +535,16 @@
   color: #fff;
   display: flex;
   align-items: center;
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 64px);
 }
 #gmcc .gm-care__inner { max-width: 54ch; }
 #gmcc .gm-care__panel .gm-eyebrow { color: rgba(255,255,255,.85); }
 #gmcc .gm-care__panel h2 { color: #fff; margin-bottom: .7em; }
 #gmcc .gm-care__panel p { color: rgba(255,255,255,.95); }
 #gmcc .gm-care__sig {
-  margin: 1.6rem 0 0;
-  font-family: var(--ff-display);
-  font-size: .84rem;
+  margin: 25.6px 0 0;
+  font-family: var(--ff-display) !important;
+  font-size: 13.44px !important;
   font-weight: 600;
   letter-spacing: .3em;
   text-transform: lowercase;
@@ -541,11 +552,11 @@
 }
 
 /* ===================================================== testimonial ====== */
-#gmcc .gm-quote { background: #fff; padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+#gmcc .gm-quote { background: #fff; padding-block: clamp(56px, 7vw, 88px); }
 #gmcc .gm-quote__inner {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 32px;
   max-width: 900px;
 }
 #gmcc .gm-quote__avatar {
@@ -558,29 +569,29 @@
 #gmcc .gm-quote blockquote { margin: 0; }
 #gmcc .gm-quote blockquote p {
   margin: 0;
-  font-size: clamp(1.1rem, 2.1vw, 1.42rem);
+  font-size: clamp(17.6px, 2.1vw, 22.72px) !important;
   font-weight: 300;
   font-style: italic;
   line-height: 1.5;
   color: var(--ink);
   border-left: 3px solid var(--orange);
-  padding-left: 1.6rem;
+  padding-left: 25.6px;
 }
 
 /* ======================================================== values ======== */
 #gmcc .gm-values {
   list-style: none;
-  margin: 2rem 0 0;
+  margin: 32px 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .7rem 1.6rem;
+  gap: 11.2px 25.6px;
 }
 #gmcc .gm-values li {
   position: relative;
-  padding-left: 1.9rem;
-  font-family: var(--ff-display);
-  font-size: .93rem;
+  padding-left: 30.4px;
+  font-family: var(--ff-display) !important;
+  font-size: 14.88px !important;
   font-weight: 500;
   color: var(--ink);
   line-height: 1.45;
@@ -599,63 +610,63 @@
 #gmcc .gm-contact {
   background: var(--ink-deep);
   color: #d4d4d4;
-  padding-block: clamp(4rem, 8vw, 6.5rem);
+  padding-block: clamp(64px, 8vw, 104px);
 }
 #gmcc .gm-contact__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2.5rem, 6vw, 5rem);
+  gap: clamp(40px, 6vw, 80px);
   align-items: start;
 }
 #gmcc .gm-contact__blurb { color: #c6c6c6; max-width: 42ch; margin: 0; }
 #gmcc .gm-contact h2 { color: #fff; }
 #gmcc .gm-contact__intro {
-  font-family: var(--ff-display);
+  font-family: var(--ff-display) !important;
   font-weight: 600;
   color: #fff;
-  font-size: 1.05rem;
-  margin-bottom: 2rem;
+  font-size: 16.8px !important;
+  margin-bottom: 32px;
 }
 
 #gmcc .gm-contact__list { margin: 0; }
 #gmcc .gm-contact__list > div {
-  padding: 1.2rem 0;
+  padding: 19.2px 0;
   border-top: 1px solid rgba(255,255,255,.12);
 }
 #gmcc .gm-contact__list > div:first-child { border-top: 0; padding-top: 0; }
 #gmcc .gm-contact__list dt {
   display: flex;
   align-items: center;
-  gap: .55rem;
-  font-family: var(--ff-display);
-  font-size: .72rem;
+  gap: 8.8px;
+  font-family: var(--ff-display) !important;
+  font-size: 11.52px !important;
   font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: .35rem;
+  margin-bottom: 5.6px;
 }
-#gmcc .gm-contact__list dd { margin: 0; font-size: 1.02rem; color: #e9e9e9; }
+#gmcc .gm-contact__list dd { margin: 0; font-size: 16.32px !important; color: #e9e9e9; }
 #gmcc .gm-contact__list dd a { color: #e9e9e9; }
 #gmcc .gm-contact__list dd a:hover { color: var(--orange); }
 
 #gmcc .gm-emergency {
-  margin-top: 2.2rem;
+  margin-top: 35.2px;
   background: var(--orange-fill);
-  padding: 1.4rem 1.6rem;
+  padding: 22.4px 25.6px;
 }
 #gmcc .gm-emergency__label {
-  margin: 0 0 .15rem;
-  font-family: var(--ff-display);
-  font-size: .74rem;
+  margin: 0 0 2.4px;
+  font-family: var(--ff-display) !important;
+  font-size: 11.84px !important;
   font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: rgba(255,255,255,.9);
 }
 #gmcc .gm-emergency__tel {
-  font-family: var(--ff-display);
-  font-size: 1.6rem;
+  font-family: var(--ff-display) !important;
+  font-size: 25.6px !important;
   font-weight: 700;
   color: #fff;
   letter-spacing: .01em;
@@ -663,30 +674,30 @@
 #gmcc .gm-emergency__tel:hover { text-decoration: none; opacity: .9; }
 
 /* ======================================================== footer ======== */
-#gmcc .gm-footer { background: #111; color: #9d9d9d; font-size: .92rem; }
+#gmcc .gm-footer { background: #111; color: #9d9d9d; font-size: 14.72px !important; }
 #gmcc .gm-footer__inner {
   display: grid;
   grid-template-columns: 1.1fr 1fr 1fr;
-  gap: 2.5rem;
-  padding-block: 3.2rem;
+  gap: 40px;
+  padding-block: 51.2px;
   align-items: start;
 }
 /* the lockup's wordmark and make logos are dark, so they sit on a white tile */
 #gmcc .gm-footer__logo {
   display: inline-block;
   background: #fff;
-  padding: .9rem 1.2rem;
+  padding: 14.4px 19.2px;
   border-radius: var(--radius);
 }
 #gmcc .gm-footer__logo img { width: 100%; max-width: 240px; height: auto; }
 #gmcc .gm-footer__tagline {
-  margin: 1.1rem 0 0;
+  margin: 17.6px 0 0;
   color: #d8d8d8;
-  font-family: var(--ff-display);
-  font-size: .9rem;
+  font-family: var(--ff-display) !important;
+  font-size: 14.4px !important;
   font-weight: 500;
 }
-#gmcc .gm-footer__contact p { margin: 0 0 .45rem; }
+#gmcc .gm-footer__contact p { margin: 0 0 7.2px; }
 #gmcc .gm-footer__contact a { color: #c9c9c9; }
 #gmcc .gm-footer__contact a:hover { color: var(--orange); }
 
@@ -694,7 +705,7 @@
 #gmcc .gm-footer__cert { display: flex; justify-content: center; }
 #gmcc .gm-mopar {
   background: #fff;
-  padding: 1rem 1.6rem 1.1rem;
+  padding: 16px 25.6px 17.6px;
   text-align: center;
   border-radius: var(--radius);
   max-width: 290px;
@@ -710,20 +721,20 @@
 }
 #gmcc .gm-mopar__name {
   display: block;
-  font-family: var(--ff-display);
+  font-family: var(--ff-display) !important;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 24px !important;
   letter-spacing: .04em;
   color: var(--mopar);
   line-height: 1;
-  margin-top: -.15rem;
+  margin-top: -2.4px;
 }
-#gmcc .gm-mopar__name sup { font-size: .42em; top: -.9em; }
+#gmcc .gm-mopar__name sup { font-size: .42em !important; top: -.9em; }
 #gmcc .gm-mopar__line {
   display: block;
-  margin-top: .3rem;
-  font-family: var(--ff-display);
-  font-size: .74rem;
+  margin-top: 4.8px;
+  font-family: var(--ff-display) !important;
+  font-size: 11.84px !important;
   font-weight: 700;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -733,42 +744,42 @@
 #gmcc .gm-footer__bar {
   display: flex;
   flex-wrap: wrap;
-  gap: .4rem 1.5rem;
+  gap: 6.4px 24px;
   justify-content: space-between;
   border-top: 1px solid rgba(255,255,255,.1);
-  padding-block: 1.3rem;
-  font-size: .82rem;
+  padding-block: 20.8px;
+  font-size: 13.12px !important;
   color: #8f8f8f;
 }
 #gmcc .gm-footer__bar p { margin: 0; }
 
 /* ==================================================== responsive ======== */
 @media (max-width: 1040px) {
-  #gmcc .gm-nav { gap: 1.1rem; }
-  #gmcc .gm-nav > a { font-size: .8rem; }
+  #gmcc .gm-nav { gap: 17.6px; }
+  #gmcc .gm-nav > a { font-size: 12.8px !important; }
   #gmcc .gm-header__tel span { display: none; }
 }
 
 @media (max-width: 900px) {
-  #gmcc .gm-trust__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
-  #gmcc .gm-services__grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  #gmcc .gm-trust__grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+  #gmcc .gm-services__grid { grid-template-columns: 1fr; gap: 22.4px; }
   #gmcc .gm-split, #gmcc .gm-contact__grid { grid-template-columns: 1fr; }
   #gmcc .gm-split--rev .gm-split__media { order: 0; }
   #gmcc .gm-split__media img { aspect-ratio: 16 / 9; }
   #gmcc .gm-care { grid-template-columns: 1fr; }
   #gmcc .gm-care__media { min-height: 300px; }
-  #gmcc .gm-footer__inner { grid-template-columns: 1fr; gap: 2rem; }
+  #gmcc .gm-footer__inner { grid-template-columns: 1fr; gap: 32px; }
   #gmcc .gm-footer__cert { justify-content: flex-start; }
 }
 
 @media (max-width: 760px) {
-  #gmcc { font-size: 16px; }
+  #gmcc { font-size: 16px !important; }
 
   #gmcc .gm-utility__inner { justify-content: center; text-align: center; }
   #gmcc .gm-utility__addr { display: none; }
 
   /* keep the sticky header to a single row on phones */
-  #gmcc .gm-header__inner { min-height: 74px; flex-wrap: wrap; gap: .5rem; }
+  #gmcc .gm-header__inner { min-height: 74px; flex-wrap: wrap; gap: 8px; }
   #gmcc .gm-brand__rule, #gmcc .gm-brand__unit { display: none; }
   #gmcc .gm-brand__logo { height: 56px; }
   #gmcc .gm-burger {
@@ -793,32 +804,32 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding-bottom: .8rem;
+    padding-bottom: 12.8px;
     border-top: 1px solid var(--line);
   }
   #gmcc .gm-navtoggle:checked ~ .gm-nav { display: flex; }
-  #gmcc .gm-nav > a { padding: .9rem .2rem; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  #gmcc .gm-nav > a { padding: 14.4px 3.2px; border-bottom: 1px solid var(--line); font-size: 15.2px !important; }
   #gmcc .gm-nav > a:not(.gm-btn)::after { display: none; }
 
   #gmcc .gm-header__tel { order: 2; margin-left: auto; }
-  #gmcc .gm-header__tel span { display: inline; font-size: .95rem; }
+  #gmcc .gm-header__tel span { display: inline; font-size: 15.2px !important; }
 
   #gmcc .gm-hero { min-height: 0; }
-  #gmcc .gm-hero__inner { padding-block: 4rem; }
+  #gmcc .gm-hero__inner { padding-block: 64px; }
   #gmcc .gm-hero__scrim { background: linear-gradient(180deg, rgba(20,20,20,.85) 0%, rgba(20,20,20,.9) 100%); }
   #gmcc .gm-hero__actions .gm-btn { flex: 1 1 auto; }
-  #gmcc .gm-hero__cert { align-items: flex-start; letter-spacing: .08em; font-size: .72rem; }
+  #gmcc .gm-hero__cert { align-items: flex-start; letter-spacing: .08em; font-size: 11.52px !important; }
   #gmcc .gm-hero__cert .gm-dot { margin-top: .4em; }
 
-  #gmcc .gm-trust__grid { grid-template-columns: 1fr; gap: 1.6rem; padding-block: 2.5rem; }
+  #gmcc .gm-trust__grid { grid-template-columns: 1fr; gap: 25.6px; padding-block: 40px; }
 
-  #gmcc .gm-quote__inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-  #gmcc .gm-quote blockquote p { padding-left: 1.1rem; }
+  #gmcc .gm-quote__inner { flex-direction: column; align-items: flex-start; gap: 19.2px; }
+  #gmcc .gm-quote blockquote p { padding-left: 17.6px; }
 
   #gmcc .gm-values { grid-template-columns: 1fr; }
 
 
-  #gmcc .gm-tag { bottom: 1.2rem; font-size: .74rem; padding: .7rem 1.4rem; }
+  #gmcc .gm-tag { bottom: 19.2px; font-size: 11.84px !important; padding: 11.2px 22.4px; }
 }
 
 /* ======================================================= a11y =========== */
@@ -832,7 +843,7 @@
 
 @media print {
   #gmcc .gm-utility, #gmcc .gm-header, #gmcc .gm-hero__actions, #gmcc .gm-burger { display: none !important; }
-  #gmcc { font-size: 11pt; color: #000; }
+  #gmcc { font-size: 11pt !important; color: #000; }
   #gmcc .gm-hero__scrim { background: none; }
 }
 

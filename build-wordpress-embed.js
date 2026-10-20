@@ -86,7 +86,31 @@ function transform(text) {
   return out;
 }
 
-let scoped = transform(css);
+/* A rem resolves against the ROOT element's font-size, and the root is the
+   theme's <html>, which we cannot set from inside a page. styles.css never
+   sets one, so standalone every rem is the 16px browser default - but a theme
+   that sets html { font-size: 18px } (or 62.5%, or 112.5%) silently rescales
+   all 148 of them, and the whole design comes out the wrong size. Resolve them
+   at build time instead. em is untouched: it resolves against the element's
+   own font-size, which we do control. */
+const REM = 16;
+const cssPx = css.replace(/(-?[\d.]+)rem\b/g,
+  (m, n) => +(parseFloat(n) * REM).toFixed(4) + 'px');
+
+let scoped = transform(cssPx);
+
+/* Namespacing keeps the theme's class rules off our markup, but it has no
+   answer to an !important on a plain element selector, and page-builder themes
+   do emit things like `#main p { font-size: 24px !important }` from their
+   typography settings. Only !important beats !important, so put one on the two
+   properties that visibly wreck the layout when they are overridden. Relative
+   order inside our own stylesheet is unchanged, so the media queries still win
+   over the base rules exactly as before. */
+for (const prop of ['font-size', 'font-family']) {
+  scoped = scoped.replace(
+    new RegExp(`([;{]\\s*)${prop}\\s*:\\s*([^;!}]+?)\\s*(?=[;}])`, 'g'),
+    (m, pre, val) => `${pre}${prop}: ${val} !important`);
+}
 
 // the sticky header fights the theme's own header once embedded
 scoped = scoped.replace(/position: sticky;/,
@@ -105,6 +129,7 @@ ${SCOPE} *, ${SCOPE} *::before, ${SCOPE} *::after {
   margin: 0;              /* beats theme section/ul/figure margins   */
   padding: 0;
   font-family: inherit;   /* beats a theme-wide * { font-family }    */
+  font-size: inherit;     /* beats a theme p { font-size }           */
   line-height: inherit;   /* beats a theme p { line-height }         */
   border: 0;
   border-radius: 0;
@@ -117,6 +142,16 @@ ${SCOPE} *, ${SCOPE} *::before, ${SCOPE} *::after {
   min-width: 0;
 }
 ${SCOPE} ul, ${SCOPE} ol { list-style: none; }
+
+/* Most of our text has no font-size of its own - it inherits from the wrapper -
+   so there is no declaration for the build to mark !important, and a theme rule
+   such as  #main p { font-size: 24px !important }  lands unopposed. Naming the
+   elements matches that specificity, and we are later in the document, so we
+   win the tie. Our own class rules are more specific again and still win here. */
+${SCOPE} p, ${SCOPE} li, ${SCOPE} dt, ${SCOPE} dd, ${SCOPE} span, ${SCOPE} a,
+${SCOPE} strong, ${SCOPE} em, ${SCOPE} blockquote, ${SCOPE} div, ${SCOPE} label,
+${SCOPE} article, ${SCOPE} section, ${SCOPE} figure, ${SCOPE} h1, ${SCOPE} h2,
+${SCOPE} h3, ${SCOPE} h4 { font-size: inherit !important; }
 ${SCOPE} blockquote::before, ${SCOPE} blockquote::after,
 ${SCOPE} q::before, ${SCOPE} q::after { content: none; }
 ${SCOPE} a { text-decoration: none; }

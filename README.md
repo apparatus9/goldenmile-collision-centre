@@ -93,6 +93,16 @@ What the build changes:
 - pins the four sized svg classes with `!important`. An inline `<svg>` has no
   intrinsic size, so a theme rule as ordinary as `svg { width: 100% }` resizes
   every icon on the page.
+- resolves all 148 `rem` values to px. A `rem` is relative to the **root**
+  element, and the root is the theme's `<html>`, which a page cannot set.
+  `styles.css` never sets one either, so standalone every `rem` is the 16px
+  browser default — but a theme with `html { font-size: 18px }` (or `62.5%`, or
+  `112.5%`) silently rescales the entire design. `em` is left alone: it resolves
+  against the element's own font-size, which we do control.
+- marks `font-size` and `font-family` `!important`, and pins the inheriting
+  elements to `font-size: inherit !important`. Namespacing has no answer to an
+  `!important` on a plain element selector, and page-builder themes emit rules
+  like `#main p { font-size: 24px !important }` from their typography settings.
 - prefixes every id — `#main` becomes `#gmcc-main`, and so on.
 - gives each inline `<svg>` explicit `width`/`height`. Without them an svg with only
   a `viewBox` has no intrinsic size and expands to fill its container if the CSS
@@ -114,6 +124,6 @@ Checked against a deliberately hostile test theme: uppercase headings, bulleted
 lists, bordered images, decorated blockquotes, a page-wide `* { font-family }`,
 `svg { width: 300px !important }`, and `!important` rules on `.header`, `.nav`,
 `.hero`, `.btn`, `.section`, `.wrap`, `.footer` and a dozen more of our own class
-names. 43 elements measured across 24 computed properties at 390, 600, 900, 1100
-and 1440px: zero differences from the standalone page, and zero changes to the
-theme's own markup.
+names, at four different root font sizes (62.5%, 10px, 20px, 24px). 43 elements
+measured across 24 computed properties at 390, 600, 900, 1100 and 1440px: zero
+differences from the standalone page, and zero changes to the theme's own markup.
