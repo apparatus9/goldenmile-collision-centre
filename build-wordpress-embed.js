@@ -197,6 +197,14 @@ const BLEED = `
 
 let body = html.slice(html.indexOf('<body>') + 6, html.lastIndexOf('</body>'));
 
+/* Drop our own header - logo, nav and phone - from the embeds only. The site
+   already has a header and a nav, and two of each on one page reads as a page
+   inside a page. index.html keeps its header: standalone there is no other
+   chrome. The mobile nav toggle and burger live inside it and go with it; the
+   boot script guards for their absence. Their CSS is left in place, namespaced
+   and matching nothing. */
+body = body.replace(/<!-- ={2,} HEADER ={2,} -->[\s\S]*?<\/header>\s*/, '');
+
 // absolute image urls
 body = body.replace(/src="assets\/([^"]+)"/g, (m, f) => `src="${CDN}${f}"`);
 

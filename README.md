@@ -110,7 +110,11 @@ What the build changes:
 - points the seven images at jsDelivr, serving this repo. **This only works while
   the repo is public.** Upload them to the Media Library and swap the urls for a
   permanent setup.
-- drops the sticky header to `position: relative`, since the site has its own.
+- removes our own header — logo, nav and phone. The site already has a header
+  and a nav, and two of each on one page reads as a page inside a page. The
+  mobile nav toggle and burger live inside it and go with it. `index.html`
+  keeps its header: standalone there is no other chrome. The dark contact strip
+  above it stays, since it carries the address and the 24/7 number.
 
 Paste it into **one Custom HTML block** (block editor) or the **Text** tab of the
 Classic editor. The visual editor rewrites markup and will break the layout.
