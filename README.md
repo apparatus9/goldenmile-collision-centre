@@ -67,3 +67,43 @@ If you ever get a white/knockout version of the lockup, you can drop the tile (`
 Rendered in Chrome at 1440px and 390px: no broken images, no console errors, no 404s.
 Mobile menu opens and closes; every in-page anchor resolves; `prefers-reduced-motion` and a
 print stylesheet are handled.
+
+## Pasting into WordPress
+
+`index.html` is a standalone page. Dropping its markup into a WordPress page does
+not work on its own: the `<link rel="stylesheet">` does not resolve, the relative
+`assets/` paths break, and `#main` collides with the theme's own `#main`.
+
+`wordpress-embed.html` is the version to paste. One file, built from the other two
+by `node build-wordpress-embed.js`. Rerun that after any edit to `index.html` or
+`styles.css` — do not hand-edit the embed.
+
+What the build changes:
+
+- inlines `styles.css` into a `<style>` block and scopes every selector under
+  `#gmcc`, so nothing reaches the theme. `:root`, `html` and `body` collapse onto
+  the wrapper div.
+- prepends a low-specificity reset inside `#gmcc`, so the theme does not reach *in*
+  either (img borders, list bullets, blockquote decoration, uppercase headings).
+- prefixes every id — `#main` becomes `#gmcc-main`, and so on.
+- gives each inline `<svg>` explicit `width`/`height`. Without them an svg with only
+  a `viewBox` has no intrinsic size and expands to fill its container if the CSS
+  ever fails to load.
+- points the seven images at jsDelivr, serving this repo. **This only works while
+  the repo is public.** Upload them to the Media Library and swap the urls for a
+  permanent setup.
+- drops the sticky header to `position: relative`, since the site has its own.
+
+Paste it into **one Custom HTML block** (block editor) or the **Text** tab of the
+Classic editor. The visual editor rewrites markup and will break the layout.
+
+Use a **full-width page template**. The block bleeds out of the theme's content
+column to full viewport width; a sidebar will overlap it. To keep it inside the
+column instead, delete the single line marked `FULL-BLEED` in the `<style>` block —
+the script at the bottom checks that rule and follows suit.
+
+Checked against a deliberately hostile test theme (uppercase headings, bulleted
+lists, bordered images, decorated blockquotes, a page-wide `* { font-family }`):
+43 elements measured across 24 computed properties at 390px, 900px and 1440px,
+zero differences from the standalone page, and zero changes to the theme's own
+markup.
