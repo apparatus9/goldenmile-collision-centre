@@ -1,0 +1,69 @@
+# Golden Mile Chrysler — Collision Centre page
+
+Static page built to match the *Number 7 Repair / Golden Mile* brochure (G1815, GREY).
+No build step, no dependencies — open `index.html`, or drop the folder on any host.
+
+```
+index.html      markup
+styles.css      all styling (design tokens at the top)
+assets/         photography cropped from the brochure artwork
+```
+
+## Where the design came from
+
+| Token | Value | Source |
+|---|---|---|
+| `--orange` | `#e8762b` | brochure orange, CMYK 6/69/100/0, read from the PDF content stream |
+| `--grey-panel-dk` | `#6e7073` | the grey "Collision Repair Experts" column |
+| `--ink` / `--ink-deep` | `#2f2f2f` / `#1d1d1d` | brochure body + dark panels |
+| `--mopar` | `#0a5ea8` | Mopar certification mark blue |
+
+Type is Archivo (headings) + Barlow (body) from Google Fonts — the closest free pairing
+to the brochure's Museo-style sans. Corners are square (`--radius: 2px`) to match the print piece.
+
+All copy is lifted verbatim from the two brochure panels: Our Promise, About Us, What We Do,
+Why Choose Us, We Care About You, the testimonial, and the contact block.
+
+## Logo
+
+Both logo files come from `All Logos/GoldenMileChryslerDodgeJeepRam LOGO.gif`, with the white
+background keyed out. The key is a flood fill from the image border rather than a plain
+white-to-alpha swap — the lockup contains white *inside* it (the "MILE" wordmark, the sky
+behind the tree, the skyline), and a global key would have punched holes through those.
+Edge pixels are un-premultiplied against white so there is no halo on dark backgrounds.
+
+- `assets/logo-gmc.png` — header. The Chrysler/Dodge/Jeep/Ram row is cropped off so the
+  lockup is wider and the wordmark reads at header size.
+- `assets/logo-gmc-full.png` — footer, full lockup including the four make logos.
+
+The footer sits on near-black, where the navy "CHRYSLER" wordmark and the black make logos
+would disappear, so the footer logo is placed on a white tile matching the Mopar badge beside it.
+If you ever get a white/knockout version of the lockup, you can drop the tile (`.footer__logo`).
+
+## Before this goes live
+
+1. **Mopar mark.** The footer Mopar badge (`.mopar`) is still a CSS stand-in — swap it for
+   the official "Certified Collision Repair Facility" artwork when you have it.
+   The Golden Mile Chrysler logo *is* the real artwork (see below).
+2. **Photography.** `hero-collage.jpg`, `about-shop.jpg`, `car-detail.jpg` and
+   `testimonial.jpg` were cropped out of the brochure's flattened artwork, so they top out
+   around 700–1400px wide — fine at the sizes used here, but not retina-sharp. If you have
+   the original stock files, or shots of the actual Eglinton Ave shop, drop them in at the
+   same filenames. `high-five.jpg` is a supplied image, converted to greyscale to match the
+   brochure's black-and-white treatment.
+3. **Contrast.** Everything clears WCAG AA **except** white text on the brochure orange
+   (2.98:1 — below the 4.5:1 minimum). That is the brochure's own treatment, so it was kept
+   rather than changed silently. To make every orange-filled surface compliant in one edit,
+   set `--orange-fill: #b25518;` in `styles.css`. Orange *text* on light backgrounds already
+   uses a darker accessible tint (`--orange-text`); the brand orange is untouched everywhere else.
+4. **No contact form.** The estimate form was removed at your request; the Contact section
+   is details only. The header CTA, hero button and "Get in touch" link all scroll to
+   `#contact`. If a form is ever wanted back, it lived in `.contact__form` / `.form*`.
+5. **Add if wanted.** Hours of operation, a Google Maps embed, insurer logos, and a
+   repair-process timeline were not in the brochure, so nothing was invented for them.
+
+## Checked
+
+Rendered in Chrome at 1440px and 390px: no broken images, no console errors, no 404s.
+Mobile menu opens and closes; every in-page anchor resolves; `prefers-reduced-motion` and a
+print stylesheet are handled.
