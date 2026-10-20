@@ -112,14 +112,14 @@
   outline-offset: 3px;
 }
 
-#gmcc .skip {
+#gmcc .gm-skip {
   position: absolute; left: -9999px;
   background: var(--orange-fill); color: #fff;
   padding: .7rem 1.1rem; z-index: 999; font-weight: 600;
 }
-#gmcc .skip:focus { left: 1rem; top: 1rem; }
+#gmcc .gm-skip:focus { left: 1rem; top: 1rem; }
 
-#gmcc .wrap {
+#gmcc .gm-wrap {
   width: 100%;
   max-width: var(--wrap);
   margin-inline: auto;
@@ -127,8 +127,8 @@
 }
 
 /* shared small inline icon */
-#gmcc .i {
-  width: 1em; height: 1em;
+#gmcc .gm-i {
+  width: 1em !important; height: 1em !important;
   flex: none;
   fill: none;
   stroke: currentColor;
@@ -138,7 +138,7 @@
 }
 
 /* ------------------------------------------------------------- eyebrow -- */
-#gmcc .eyebrow {
+#gmcc .gm-eyebrow {
   font-family: var(--ff-display);
   font-size: .78rem;
   font-weight: 600;
@@ -147,11 +147,11 @@
   color: var(--orange-text);
   margin: 0 0 .85rem;
 }
-#gmcc .eyebrow--light { color: var(--orange); }
-#gmcc .eyebrow.center { text-align: center; }
+#gmcc .gm-eyebrow--light { color: var(--orange); }
+#gmcc .gm-eyebrow.gm-center { text-align: center; }
 
 /* -------------------------------------------------------------- button -- */
-#gmcc .btn {
+#gmcc .gm-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -167,20 +167,20 @@
   transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
   text-decoration: none;
 }
-#gmcc .btn:hover { text-decoration: none; transform: translateY(-1px); }
+#gmcc .gm-btn:hover { text-decoration: none; transform: translateY(-1px); }
 
-#gmcc .btn--primary { background: var(--orange-fill); border-color: var(--orange-fill); color: #fff; }
-#gmcc .btn--primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
+#gmcc .gm-btn--primary { background: var(--orange-fill); border-color: var(--orange-fill); color: #fff; }
+#gmcc .gm-btn--primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
 
-#gmcc .btn--block { width: 100%; }
+#gmcc .gm-btn--block { width: 100%; }
 
 /* ================================================= utility bar ========== */
-#gmcc .utility {
+#gmcc .gm-utility {
   background: var(--ink-deep);
   color: #c9c9c9;
   font-size: .82rem;
 }
-#gmcc .utility__inner {
+#gmcc .gm-utility__inner {
   display: flex;
   flex-wrap: wrap;
   gap: .4rem 1.5rem;
@@ -189,10 +189,10 @@
   min-height: 42px;
   padding-block: .4rem;
 }
-#gmcc .utility p { margin: 0; }
-#gmcc .utility__addr { display: flex; align-items: center; gap: .5rem; }
-#gmcc .utility__emg { display: flex; align-items: center; gap: .6rem; }
-#gmcc .utility__label {
+#gmcc .gm-utility p { margin: 0; }
+#gmcc .gm-utility__addr { display: flex; align-items: center; gap: .5rem; }
+#gmcc .gm-utility__emg { display: flex; align-items: center; gap: .6rem; }
+#gmcc .gm-utility__label {
   font-family: var(--ff-display);
   font-weight: 600;
   letter-spacing: .1em;
@@ -200,17 +200,17 @@
   font-size: .72rem;
   color: var(--orange);
 }
-#gmcc .utility__emg a { color: #fff; font-weight: 600; }
+#gmcc .gm-utility__emg a { color: #fff; font-weight: 600; }
 
 /* ====================================================== header ========== */
-#gmcc .header {
+#gmcc .gm-header {
   position: relative; /* was sticky - the theme has its own header */
   top: 0;
   z-index: 100;
   background: #fff;
   border-bottom: 1px solid var(--line);
 }
-#gmcc .header__inner {
+#gmcc .gm-header__inner {
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -218,7 +218,7 @@
 }
 
 /* brand lockup — Golden Mile Chrysler artwork, background keyed out */
-#gmcc .brand {
+#gmcc .gm-brand {
   display: flex;
   align-items: center;
   gap: .9rem;
@@ -226,14 +226,14 @@
   text-decoration: none;
   margin-right: auto;
 }
-#gmcc .brand:hover { text-decoration: none; }
-#gmcc .brand__logo {
+#gmcc .gm-brand:hover { text-decoration: none; }
+#gmcc .gm-brand__logo {
   height: 88px;
   width: auto;
   flex: none;
 }
-#gmcc .brand__rule { width: 1px; height: 54px; background: var(--line); }
-#gmcc .brand__unit {
+#gmcc .gm-brand__rule { width: 1px; height: 54px; background: var(--line); }
+#gmcc .gm-brand__unit {
   font-family: var(--ff-display);
   font-size: .72rem;
   font-weight: 600;
@@ -243,8 +243,8 @@
   line-height: 1.35;
 }
 
-#gmcc .nav { display: flex; align-items: center; gap: 1.6rem; }
-#gmcc .nav > a {
+#gmcc .gm-nav { display: flex; align-items: center; gap: 1.6rem; }
+#gmcc .gm-nav > a {
   font-family: var(--ff-display);
   font-size: .86rem;
   font-weight: 600;
@@ -253,8 +253,8 @@
   position: relative;
   padding-block: .4rem;
 }
-#gmcc .nav > a:not(.btn):hover { color: var(--orange); text-decoration: none; }
-#gmcc .nav > a:not(.btn)::after {
+#gmcc .gm-nav > a:not(.gm-btn):hover { color: var(--orange); text-decoration: none; }
+#gmcc .gm-nav > a:not(.gm-btn)::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -264,10 +264,10 @@
   transform-origin: left;
   transition: transform .18s ease;
 }
-#gmcc .nav > a:not(.btn):hover::after { transform: scaleX(1); }
+#gmcc .gm-nav > a:not(.gm-btn):hover::after { transform: scaleX(1); }
 
 
-#gmcc .header__tel {
+#gmcc .gm-header__tel {
   display: flex;
   align-items: center;
   gap: .55rem;
@@ -277,26 +277,26 @@
   color: var(--ink);
   white-space: nowrap;
 }
-#gmcc .header__tel .i { color: var(--orange); width: 1.15em; height: 1.15em; }
-#gmcc .header__tel:hover { color: var(--orange); text-decoration: none; }
+#gmcc .gm-header__tel .gm-i { color: var(--orange); width: 1.15em !important; height: 1.15em !important; }
+#gmcc .gm-header__tel:hover { color: var(--orange); text-decoration: none; }
 
 /* The toggle stays in the accessibility tree (and focusable) rather than
    display:none, so the menu can be opened from the keyboard. */
-#gmcc .navtoggle {
+#gmcc .gm-navtoggle {
   position: absolute;
   width: 1px; height: 1px;
   margin: -1px; padding: 0;
   overflow: hidden; clip: rect(0 0 0 0);
   white-space: nowrap; border: 0;
 }
-#gmcc .burger { display: none; }
-#gmcc .navtoggle:focus-visible + .burger {
+#gmcc .gm-burger { display: none; }
+#gmcc .gm-navtoggle:focus-visible + .gm-burger {
   outline: 3px solid var(--orange);
   outline-offset: 2px;
 }
 
 /* ======================================================== hero ========== */
-#gmcc .hero {
+#gmcc .gm-hero {
   position: relative;
   min-height: 560px;
   display: flex;
@@ -304,7 +304,7 @@
   background: var(--ink-deep);
   overflow: hidden;
 }
-#gmcc .hero__img {
+#gmcc .gm-hero__img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -314,19 +314,19 @@
 }
 /* Two layers: a flat wash to even out the brochure collage's panel seams,
    plus a left-weighted gradient so the headline always has contrast. */
-#gmcc .hero__scrim {
+#gmcc .gm-hero__scrim {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(95deg, rgba(17,17,17,.92) 0%, rgba(17,17,17,.82) 38%, rgba(17,17,17,.46) 70%, rgba(17,17,17,.56) 100%),
     linear-gradient(0deg, rgba(17,17,17,.22), rgba(17,17,17,.22));
 }
-#gmcc .hero__inner {
+#gmcc .gm-hero__inner {
   position: relative;
   padding-block: 5.5rem;
   max-width: calc(var(--wrap) + 0px);
 }
-#gmcc .hero__title {
+#gmcc .gm-hero__title {
   color: #fff;
   font-size: clamp(2.3rem, 5.6vw, 4rem);
   line-height: 1.04;
@@ -334,16 +334,16 @@
   max-width: 21ch;
   margin-bottom: .5em;
 }
-#gmcc .hero__title span { color: var(--orange); }
-#gmcc .hero__lede {
+#gmcc .gm-hero__title span { color: var(--orange); }
+#gmcc .gm-hero__lede {
   color: rgba(255,255,255,.88);
   font-size: 1.12rem;
   font-weight: 300;
   max-width: 54ch;
   margin-bottom: 2rem;
 }
-#gmcc .hero__actions { display: flex; flex-wrap: wrap; gap: .85rem; }
-#gmcc .hero__cert {
+#gmcc .gm-hero__actions { display: flex; flex-wrap: wrap; gap: .85rem; }
+#gmcc .gm-hero__cert {
   margin: 2.2rem 0 0;
   display: flex;
   align-items: center;
@@ -355,27 +355,27 @@
   text-transform: uppercase;
   color: rgba(255,255,255,.8);
 }
-#gmcc .dot { width: 8px; height: 8px; background: var(--orange); flex: none; }
+#gmcc .gm-dot { width: 8px; height: 8px; background: var(--orange); flex: none; }
 
 /* ======================================================= trust ========== */
-#gmcc .trust {
+#gmcc .gm-trust {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
 }
-#gmcc .trust__grid {
+#gmcc .gm-trust__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   padding-block: 3rem;
 }
-#gmcc .trust__item h3 {
+#gmcc .gm-trust__item h3 {
   font-size: .95rem;
   letter-spacing: .02em;
   margin: 0 0 .35rem;
 }
-#gmcc .trust__item p { margin: 0; font-size: .92rem; color: var(--muted); }
-#gmcc .trust__i {
-  width: 34px; height: 34px;
+#gmcc .gm-trust__item p { margin: 0; font-size: .92rem; color: var(--muted); }
+#gmcc .gm-trust__i {
+  width: 34px !important; height: 34px !important;
   display: block;
   margin-bottom: .9rem;
   fill: none;
@@ -386,26 +386,26 @@
 }
 
 /* ===================================================== sections ========= */
-#gmcc .section { padding-block: clamp(4rem, 8vw, 6.5rem); }
-#gmcc .section--alt { background: var(--surface); }
+#gmcc .gm-section { padding-block: clamp(4rem, 8vw, 6.5rem); }
+#gmcc .gm-section--alt { background: var(--surface); }
 
-#gmcc .split {
+#gmcc .gm-split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: center;
 }
-#gmcc .split--rev .split__media { order: 2; }
+#gmcc .gm-split--rev .gm-split__media { order: 2; }
 
-#gmcc .split__media { position: relative; }
-#gmcc .split__media img {
+#gmcc .gm-split__media { position: relative; }
+#gmcc .gm-split__media img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center;
   box-shadow: var(--shadow-lg);
 }
-#gmcc .tag {
+#gmcc .gm-tag {
   position: absolute;
   left: 0;
   bottom: 2.2rem;
@@ -419,18 +419,18 @@
   padding: .85rem 2rem .85rem 1.6rem;
 }
 
-#gmcc .split__body h2 { margin-bottom: .7em; }
-#gmcc .lead { font-size: 1.06rem; }
-#gmcc .lead strong { color: var(--ink); font-weight: 600; }
+#gmcc .gm-split__body h2 { margin-bottom: .7em; }
+#gmcc .gm-lead { font-size: 1.06rem; }
+#gmcc .gm-lead strong { color: var(--ink); font-weight: 600; }
 
 /* TRUST / RELIABILITY / QUALITY */
-#gmcc .pillars { list-style: none; margin: 2.2rem 0 0; padding: 0; }
-#gmcc .pillars li {
+#gmcc .gm-pillars { list-style: none; margin: 2.2rem 0 0; padding: 0; }
+#gmcc .gm-pillars li {
   position: relative;
   padding-left: 1.6rem;
   margin-bottom: 1.4rem;
 }
-#gmcc .pillars li::before {
+#gmcc .gm-pillars li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -439,23 +439,23 @@
   border-radius: 50%;
   background: var(--orange);
 }
-#gmcc .pillars h3 {
+#gmcc .gm-pillars h3 {
   font-size: .95rem;
   letter-spacing: .13em;
   text-transform: uppercase;
   color: var(--orange-text);
   margin: 0 0 .2rem;
 }
-#gmcc .pillars p { margin: 0; }
+#gmcc .gm-pillars p { margin: 0; }
 
 /* ===================================================== services ======== */
-#gmcc .services {
+#gmcc .gm-services {
   background: var(--grey-panel-dk);
   color: #fff;
   padding-block: clamp(4rem, 8vw, 6.5rem);
 }
-#gmcc .services .eyebrow { color: #fff; }
-#gmcc .services__title {
+#gmcc .gm-services .gm-eyebrow { color: #fff; }
+#gmcc .gm-services__title {
   color: #fff;
   text-align: center;
   font-size: clamp(1.6rem, 3vw, 2.1rem);
@@ -464,20 +464,20 @@
   font-weight: 600;
   margin-bottom: 3.2rem;
 }
-#gmcc .services__grid {
+#gmcc .gm-services__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.4rem;
 }
-#gmcc .svc {
+#gmcc .gm-svc {
   background: rgba(0,0,0,.12);
   border: 1px solid rgba(255,255,255,.22);
   padding: 2.4rem 1.9rem;
   transition: background-color .2s ease, transform .2s ease;
 }
-#gmcc .svc:hover { background: rgba(0,0,0,.2); transform: translateY(-3px); }
-#gmcc .svc__i {
-  width: 58px; height: 58px;
+#gmcc .gm-svc:hover { background: rgba(0,0,0,.2); transform: translateY(-3px); }
+#gmcc .gm-svc__i {
+  width: 58px !important; height: 58px !important;
   display: block;
   margin-bottom: 1.4rem;
   fill: none;
@@ -486,30 +486,30 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-#gmcc .svc h3 {
+#gmcc .gm-svc h3 {
   color: #fff;
   font-size: 1.08rem;
   letter-spacing: .06em;
   text-transform: uppercase;
   margin-bottom: .6rem;
 }
-#gmcc .svc p { color: #f1f1f1; margin: 0; font-size: .97rem; }
+#gmcc .gm-svc p { color: #f1f1f1; margin: 0; font-size: .97rem; }
 
-#gmcc .services__foot {
+#gmcc .gm-services__foot {
   text-align: center;
   margin: 3rem 0 0;
   color: #fff;
 }
-#gmcc .services__foot a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+#gmcc .gm-services__foot a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ================================================ we care about you ===== */
-#gmcc .care {
+#gmcc .gm-care {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
 }
-#gmcc .care__media { position: relative; min-height: 420px; }
-#gmcc .care__media img {
+#gmcc .gm-care__media { position: relative; min-height: 420px; }
+#gmcc .gm-care__media img {
   position: absolute;
   inset: 0;
   width: 100%; height: 100%;
@@ -519,18 +519,18 @@
      it ever grows taller than the image. */
   object-position: center 22%;
 }
-#gmcc .care__panel {
+#gmcc .gm-care__panel {
   background: var(--orange-fill);
   color: #fff;
   display: flex;
   align-items: center;
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem);
 }
-#gmcc .care__inner { max-width: 54ch; }
-#gmcc .care__panel .eyebrow { color: rgba(255,255,255,.85); }
-#gmcc .care__panel h2 { color: #fff; margin-bottom: .7em; }
-#gmcc .care__panel p { color: rgba(255,255,255,.95); }
-#gmcc .care__sig {
+#gmcc .gm-care__inner { max-width: 54ch; }
+#gmcc .gm-care__panel .gm-eyebrow { color: rgba(255,255,255,.85); }
+#gmcc .gm-care__panel h2 { color: #fff; margin-bottom: .7em; }
+#gmcc .gm-care__panel p { color: rgba(255,255,255,.95); }
+#gmcc .gm-care__sig {
   margin: 1.6rem 0 0;
   font-family: var(--ff-display);
   font-size: .84rem;
@@ -541,22 +541,22 @@
 }
 
 /* ===================================================== testimonial ====== */
-#gmcc .quote { background: #fff; padding-block: clamp(3.5rem, 7vw, 5.5rem); }
-#gmcc .quote__inner {
+#gmcc .gm-quote { background: #fff; padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+#gmcc .gm-quote__inner {
   display: flex;
   align-items: center;
   gap: 2rem;
   max-width: 900px;
 }
-#gmcc .quote__avatar {
+#gmcc .gm-quote__avatar {
   width: 92px; height: 92px;
   border-radius: 50%;
   object-fit: cover;
   flex: none;
   filter: grayscale(1);
 }
-#gmcc .quote blockquote { margin: 0; }
-#gmcc .quote blockquote p {
+#gmcc .gm-quote blockquote { margin: 0; }
+#gmcc .gm-quote blockquote p {
   margin: 0;
   font-size: clamp(1.1rem, 2.1vw, 1.42rem);
   font-weight: 300;
@@ -568,7 +568,7 @@
 }
 
 /* ======================================================== values ======== */
-#gmcc .values {
+#gmcc .gm-values {
   list-style: none;
   margin: 2rem 0 0;
   padding: 0;
@@ -576,7 +576,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .7rem 1.6rem;
 }
-#gmcc .values li {
+#gmcc .gm-values li {
   position: relative;
   padding-left: 1.9rem;
   font-family: var(--ff-display);
@@ -585,7 +585,7 @@
   color: var(--ink);
   line-height: 1.45;
 }
-#gmcc .values li::before {
+#gmcc .gm-values li::before {
   content: "";
   position: absolute;
   left: 0; top: .32em;
@@ -596,20 +596,20 @@
 }
 
 /* ======================================================= contact ======== */
-#gmcc .contact {
+#gmcc .gm-contact {
   background: var(--ink-deep);
   color: #d4d4d4;
   padding-block: clamp(4rem, 8vw, 6.5rem);
 }
-#gmcc .contact__grid {
+#gmcc .gm-contact__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: start;
 }
-#gmcc .contact__blurb { color: #c6c6c6; max-width: 42ch; margin: 0; }
-#gmcc .contact h2 { color: #fff; }
-#gmcc .contact__intro {
+#gmcc .gm-contact__blurb { color: #c6c6c6; max-width: 42ch; margin: 0; }
+#gmcc .gm-contact h2 { color: #fff; }
+#gmcc .gm-contact__intro {
   font-family: var(--ff-display);
   font-weight: 600;
   color: #fff;
@@ -617,13 +617,13 @@
   margin-bottom: 2rem;
 }
 
-#gmcc .contact__list { margin: 0; }
-#gmcc .contact__list > div {
+#gmcc .gm-contact__list { margin: 0; }
+#gmcc .gm-contact__list > div {
   padding: 1.2rem 0;
   border-top: 1px solid rgba(255,255,255,.12);
 }
-#gmcc .contact__list > div:first-child { border-top: 0; padding-top: 0; }
-#gmcc .contact__list dt {
+#gmcc .gm-contact__list > div:first-child { border-top: 0; padding-top: 0; }
+#gmcc .gm-contact__list dt {
   display: flex;
   align-items: center;
   gap: .55rem;
@@ -635,16 +635,16 @@
   color: var(--orange);
   margin-bottom: .35rem;
 }
-#gmcc .contact__list dd { margin: 0; font-size: 1.02rem; color: #e9e9e9; }
-#gmcc .contact__list dd a { color: #e9e9e9; }
-#gmcc .contact__list dd a:hover { color: var(--orange); }
+#gmcc .gm-contact__list dd { margin: 0; font-size: 1.02rem; color: #e9e9e9; }
+#gmcc .gm-contact__list dd a { color: #e9e9e9; }
+#gmcc .gm-contact__list dd a:hover { color: var(--orange); }
 
-#gmcc .emergency {
+#gmcc .gm-emergency {
   margin-top: 2.2rem;
   background: var(--orange-fill);
   padding: 1.4rem 1.6rem;
 }
-#gmcc .emergency__label {
+#gmcc .gm-emergency__label {
   margin: 0 0 .15rem;
   font-family: var(--ff-display);
   font-size: .74rem;
@@ -653,18 +653,18 @@
   text-transform: uppercase;
   color: rgba(255,255,255,.9);
 }
-#gmcc .emergency__tel {
+#gmcc .gm-emergency__tel {
   font-family: var(--ff-display);
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
   letter-spacing: .01em;
 }
-#gmcc .emergency__tel:hover { text-decoration: none; opacity: .9; }
+#gmcc .gm-emergency__tel:hover { text-decoration: none; opacity: .9; }
 
 /* ======================================================== footer ======== */
-#gmcc .footer { background: #111; color: #9d9d9d; font-size: .92rem; }
-#gmcc .footer__inner {
+#gmcc .gm-footer { background: #111; color: #9d9d9d; font-size: .92rem; }
+#gmcc .gm-footer__inner {
   display: grid;
   grid-template-columns: 1.1fr 1fr 1fr;
   gap: 2.5rem;
@@ -672,27 +672,27 @@
   align-items: start;
 }
 /* the lockup's wordmark and make logos are dark, so they sit on a white tile */
-#gmcc .footer__logo {
+#gmcc .gm-footer__logo {
   display: inline-block;
   background: #fff;
   padding: .9rem 1.2rem;
   border-radius: var(--radius);
 }
-#gmcc .footer__logo img { width: 100%; max-width: 240px; height: auto; }
-#gmcc .footer__tagline {
+#gmcc .gm-footer__logo img { width: 100%; max-width: 240px; height: auto; }
+#gmcc .gm-footer__tagline {
   margin: 1.1rem 0 0;
   color: #d8d8d8;
   font-family: var(--ff-display);
   font-size: .9rem;
   font-weight: 500;
 }
-#gmcc .footer__contact p { margin: 0 0 .45rem; }
-#gmcc .footer__contact a { color: #c9c9c9; }
-#gmcc .footer__contact a:hover { color: var(--orange); }
+#gmcc .gm-footer__contact p { margin: 0 0 .45rem; }
+#gmcc .gm-footer__contact a { color: #c9c9c9; }
+#gmcc .gm-footer__contact a:hover { color: var(--orange); }
 
 /* Mopar certification lockup — swap for the official mark when supplied */
-#gmcc .footer__cert { display: flex; justify-content: center; }
-#gmcc .mopar {
+#gmcc .gm-footer__cert { display: flex; justify-content: center; }
+#gmcc .gm-mopar {
   background: #fff;
   padding: 1rem 1.6rem 1.1rem;
   text-align: center;
@@ -700,15 +700,15 @@
   max-width: 290px;
   width: 100%;
 }
-#gmcc .mopar__arc {
+#gmcc .gm-mopar__arc {
   display: block;
-  width: 100%;
-  height: 22px;
+  width: 100% !important;
+  height: 22px !important;
   fill: none;
   stroke: #111;
   stroke-width: 3;
 }
-#gmcc .mopar__name {
+#gmcc .gm-mopar__name {
   display: block;
   font-family: var(--ff-display);
   font-weight: 700;
@@ -718,8 +718,8 @@
   line-height: 1;
   margin-top: -.15rem;
 }
-#gmcc .mopar__name sup { font-size: .42em; top: -.9em; }
-#gmcc .mopar__line {
+#gmcc .gm-mopar__name sup { font-size: .42em; top: -.9em; }
+#gmcc .gm-mopar__line {
   display: block;
   margin-top: .3rem;
   font-family: var(--ff-display);
@@ -730,7 +730,7 @@
   color: var(--mopar);
 }
 
-#gmcc .footer__bar {
+#gmcc .gm-footer__bar {
   display: flex;
   flex-wrap: wrap;
   gap: .4rem 1.5rem;
@@ -740,38 +740,38 @@
   font-size: .82rem;
   color: #8f8f8f;
 }
-#gmcc .footer__bar p { margin: 0; }
+#gmcc .gm-footer__bar p { margin: 0; }
 
 /* ==================================================== responsive ======== */
 @media (max-width: 1040px) {
-  #gmcc .nav { gap: 1.1rem; }
-  #gmcc .nav > a { font-size: .8rem; }
-  #gmcc .header__tel span { display: none; }
+  #gmcc .gm-nav { gap: 1.1rem; }
+  #gmcc .gm-nav > a { font-size: .8rem; }
+  #gmcc .gm-header__tel span { display: none; }
 }
 
 @media (max-width: 900px) {
-  #gmcc .trust__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
-  #gmcc .services__grid { grid-template-columns: 1fr; gap: 1.4rem; }
-  #gmcc .split, #gmcc .contact__grid { grid-template-columns: 1fr; }
-  #gmcc .split--rev .split__media { order: 0; }
-  #gmcc .split__media img { aspect-ratio: 16 / 9; }
-  #gmcc .care { grid-template-columns: 1fr; }
-  #gmcc .care__media { min-height: 300px; }
-  #gmcc .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
-  #gmcc .footer__cert { justify-content: flex-start; }
+  #gmcc .gm-trust__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+  #gmcc .gm-services__grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  #gmcc .gm-split, #gmcc .gm-contact__grid { grid-template-columns: 1fr; }
+  #gmcc .gm-split--rev .gm-split__media { order: 0; }
+  #gmcc .gm-split__media img { aspect-ratio: 16 / 9; }
+  #gmcc .gm-care { grid-template-columns: 1fr; }
+  #gmcc .gm-care__media { min-height: 300px; }
+  #gmcc .gm-footer__inner { grid-template-columns: 1fr; gap: 2rem; }
+  #gmcc .gm-footer__cert { justify-content: flex-start; }
 }
 
 @media (max-width: 760px) {
   #gmcc { font-size: 16px; }
 
-  #gmcc .utility__inner { justify-content: center; text-align: center; }
-  #gmcc .utility__addr { display: none; }
+  #gmcc .gm-utility__inner { justify-content: center; text-align: center; }
+  #gmcc .gm-utility__addr { display: none; }
 
   /* keep the sticky header to a single row on phones */
-  #gmcc .header__inner { min-height: 74px; flex-wrap: wrap; gap: .5rem; }
-  #gmcc .brand__rule, #gmcc .brand__unit { display: none; }
-  #gmcc .brand__logo { height: 56px; }
-  #gmcc .burger {
+  #gmcc .gm-header__inner { min-height: 74px; flex-wrap: wrap; gap: .5rem; }
+  #gmcc .gm-brand__rule, #gmcc .gm-brand__unit { display: none; }
+  #gmcc .gm-brand__logo { height: 56px; }
+  #gmcc .gm-burger {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -781,12 +781,12 @@
     cursor: pointer;
     order: 3;
   }
-  #gmcc .burger span { display: block; height: 2px; background: var(--ink); transition: transform .2s ease, opacity .2s ease; }
-  #gmcc .navtoggle:checked + .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  #gmcc .navtoggle:checked + .burger span:nth-child(2) { opacity: 0; }
-  #gmcc .navtoggle:checked + .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  #gmcc .gm-burger span { display: block; height: 2px; background: var(--ink); transition: transform .2s ease, opacity .2s ease; }
+  #gmcc .gm-navtoggle:checked + .gm-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #gmcc .gm-navtoggle:checked + .gm-burger span:nth-child(2) { opacity: 0; }
+  #gmcc .gm-navtoggle:checked + .gm-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  #gmcc .nav {
+  #gmcc .gm-nav {
     order: 4;
     display: none;
     width: 100%;
@@ -796,29 +796,29 @@
     padding-bottom: .8rem;
     border-top: 1px solid var(--line);
   }
-  #gmcc .navtoggle:checked ~ .nav { display: flex; }
-  #gmcc .nav > a { padding: .9rem .2rem; border-bottom: 1px solid var(--line); font-size: .95rem; }
-  #gmcc .nav > a:not(.btn)::after { display: none; }
+  #gmcc .gm-navtoggle:checked ~ .gm-nav { display: flex; }
+  #gmcc .gm-nav > a { padding: .9rem .2rem; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  #gmcc .gm-nav > a:not(.gm-btn)::after { display: none; }
 
-  #gmcc .header__tel { order: 2; margin-left: auto; }
-  #gmcc .header__tel span { display: inline; font-size: .95rem; }
+  #gmcc .gm-header__tel { order: 2; margin-left: auto; }
+  #gmcc .gm-header__tel span { display: inline; font-size: .95rem; }
 
-  #gmcc .hero { min-height: 0; }
-  #gmcc .hero__inner { padding-block: 4rem; }
-  #gmcc .hero__scrim { background: linear-gradient(180deg, rgba(20,20,20,.85) 0%, rgba(20,20,20,.9) 100%); }
-  #gmcc .hero__actions .btn { flex: 1 1 auto; }
-  #gmcc .hero__cert { align-items: flex-start; letter-spacing: .08em; font-size: .72rem; }
-  #gmcc .hero__cert .dot { margin-top: .4em; }
+  #gmcc .gm-hero { min-height: 0; }
+  #gmcc .gm-hero__inner { padding-block: 4rem; }
+  #gmcc .gm-hero__scrim { background: linear-gradient(180deg, rgba(20,20,20,.85) 0%, rgba(20,20,20,.9) 100%); }
+  #gmcc .gm-hero__actions .gm-btn { flex: 1 1 auto; }
+  #gmcc .gm-hero__cert { align-items: flex-start; letter-spacing: .08em; font-size: .72rem; }
+  #gmcc .gm-hero__cert .gm-dot { margin-top: .4em; }
 
-  #gmcc .trust__grid { grid-template-columns: 1fr; gap: 1.6rem; padding-block: 2.5rem; }
+  #gmcc .gm-trust__grid { grid-template-columns: 1fr; gap: 1.6rem; padding-block: 2.5rem; }
 
-  #gmcc .quote__inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-  #gmcc .quote blockquote p { padding-left: 1.1rem; }
+  #gmcc .gm-quote__inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  #gmcc .gm-quote blockquote p { padding-left: 1.1rem; }
 
-  #gmcc .values { grid-template-columns: 1fr; }
+  #gmcc .gm-values { grid-template-columns: 1fr; }
 
 
-  #gmcc .tag { bottom: 1.2rem; font-size: .74rem; padding: .7rem 1.4rem; }
+  #gmcc .gm-tag { bottom: 1.2rem; font-size: .74rem; padding: .7rem 1.4rem; }
 }
 
 /* ======================================================= a11y =========== */
@@ -831,9 +831,9 @@
 }
 
 @media print {
-  #gmcc .utility, #gmcc .header, #gmcc .hero__actions, #gmcc .burger { display: none !important; }
+  #gmcc .gm-utility, #gmcc .gm-header, #gmcc .gm-hero__actions, #gmcc .gm-burger { display: none !important; }
   #gmcc { font-size: 11pt; color: #000; }
-  #gmcc .hero__scrim { background: none; }
+  #gmcc .gm-hero__scrim { background: none; }
 }
 
 
@@ -848,37 +848,37 @@
 </style>
 
 <div id="gmcc">
-<a class="skip" href="#gmcc-main">Skip to content</a>
+<a class="gm-skip" href="#gmcc-main">Skip to content</a>
 
 <!-- ================= UTILITY BAR ================= -->
-<div class="utility">
-  <div class="wrap utility__inner">
-    <p class="utility__addr">
-      <svg class="i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+<div class="gm-utility">
+  <div class="gm-wrap gm-utility__inner">
+    <p class="gm-utility__addr">
+      <svg class="gm-i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
       1743 Eglinton Ave E, Toronto ON M4A 1J8
     </p>
-    <p class="utility__emg">
-      <span class="utility__label">24/7 Emergency Contact</span>
+    <p class="gm-utility__emg">
+      <span class="gm-utility__label">24/7 Emergency Contact</span>
       <a href="tel:+14164026782">(416) 402-6782</a>
     </p>
   </div>
 </div>
 
 <!-- ================= HEADER ================= -->
-<header class="header">
-  <div class="wrap header__inner">
-    <a class="brand" href="#gmcc-main">
-      <img class="brand__logo" src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/logo-gmc.png" alt="Golden Mile Chrysler" width="420" height="250">
-      <span class="brand__rule" aria-hidden="true"></span>
-      <span class="brand__unit">Collision<br>Centre</span>
+<header class="gm-header">
+  <div class="gm-wrap gm-header__inner">
+    <a class="gm-brand" href="#gmcc-main">
+      <img class="gm-brand__logo" src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/logo-gmc.png" alt="Golden Mile Chrysler" width="420" height="250">
+      <span class="gm-brand__rule" aria-hidden="true"></span>
+      <span class="gm-brand__unit">Collision<br>Centre</span>
     </a>
 
-    <input type="checkbox" id="gmcc-navtoggle" class="navtoggle">
-    <label for="gmcc-navtoggle" class="burger" aria-label="Toggle navigation">
+    <input type="checkbox" id="gmcc-navtoggle" class="gm-navtoggle">
+    <label for="gmcc-navtoggle" class="gm-burger" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </label>
 
-    <nav class="nav" aria-label="Primary">
+    <nav class="gm-nav" aria-label="Primary">
       <a href="#gmcc-about">About Us</a>
       <a href="#gmcc-services">What We Do</a>
       <a href="#gmcc-care">Why Choose Us</a>
@@ -886,8 +886,8 @@
       <a href="#gmcc-contact">Contact</a>
     </nav>
 
-    <a class="header__tel" href="tel:+14164026782">
-      <svg class="i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.6l1.8 4.5-2.3 1.6a12.5 12.5 0 0 0 6.8 6.8l1.6-2.3L21 15.4V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg>
+    <a class="gm-header__tel" href="tel:+14164026782">
+      <svg class="gm-i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.6l1.8 4.5-2.3 1.6a12.5 12.5 0 0 0 6.8 6.8l1.6-2.3L21 15.4V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg>
       <span>(416) 402-6782</span>
     </a>
   </div>
@@ -896,40 +896,40 @@
 <main id="gmcc-main">
 
 <!-- ================= HERO ================= -->
-<section class="hero">
-  <img class="hero__img" src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/hero-collage.jpg" alt="Collision repair technicians inspecting panel damage and a repaired vehicle on the road" width="2400" height="440">
-  <div class="hero__scrim"></div>
-  <div class="wrap hero__inner">
-    <p class="eyebrow eyebrow--light">Golden Mile Chrysler's Authorized Body Shop</p>
-    <h1 class="hero__title">The GTA's most trusted<br><span>collision repair facility</span></h1>
-    <p class="hero__lede">We don't just fix damaged cars &mdash; we restore them to their pre-accident, factory specification and showroom condition.</p>
-    <div class="hero__actions">
-      <a class="btn btn--primary" href="tel:+14164026782">Call (416) 402-6782</a>
+<section class="gm-hero">
+  <img class="gm-hero__img" src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/hero-collage.jpg" alt="Collision repair technicians inspecting panel damage and a repaired vehicle on the road" width="2400" height="440">
+  <div class="gm-hero__scrim"></div>
+  <div class="gm-wrap gm-hero__inner">
+    <p class="gm-eyebrow gm-eyebrow--light">Golden Mile Chrysler's Authorized Body Shop</p>
+    <h1 class="gm-hero__title">The GTA's most trusted<br><span>collision repair facility</span></h1>
+    <p class="gm-hero__lede">We don't just fix damaged cars &mdash; we restore them to their pre-accident, factory specification and showroom condition.</p>
+    <div class="gm-hero__actions">
+      <a class="gm-btn gm-btn--primary" href="tel:+14164026782">Call (416) 402-6782</a>
     </div>
-    <p class="hero__cert"><span class="dot"></span> Mopar&reg; Certified Collision Repair Facility</p>
+    <p class="gm-hero__cert"><span class="gm-dot"></span> Mopar&reg; Certified Collision Repair Facility</p>
   </div>
 </section>
 
 <!-- ================= TRUST STRIP ================= -->
-<section class="trust" aria-label="Why customers choose us">
-  <div class="wrap trust__grid">
-    <div class="trust__item">
-      <svg class="trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l15 6v11c0 10-6.4 17.4-15 21-8.6-3.6-15-11-15-21V11z"/><path d="M17 24l5 5 10-11"/></svg>
+<section class="gm-trust" aria-label="Why customers choose us">
+  <div class="gm-wrap gm-trust__grid">
+    <div class="gm-trust__item">
+      <svg class="gm-trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l15 6v11c0 10-6.4 17.4-15 21-8.6-3.6-15-11-15-21V11z"/><path d="M17 24l5 5 10-11"/></svg>
       <h3>Lifetime Guarantee</h3>
       <p>We stand behind every repair we deliver.</p>
     </div>
-    <div class="trust__item">
-      <svg class="trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6a11 11 0 0 0-9.6 16.4L7 35.8a4.4 4.4 0 0 0 6.2 6.2l13.4-13.4A11 11 0 1 0 30 6z"/><path d="M34 10l-5 5 4 4 5-5"/></svg>
+    <div class="gm-trust__item">
+      <svg class="gm-trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6a11 11 0 0 0-9.6 16.4L7 35.8a4.4 4.4 0 0 0 6.2 6.2l13.4-13.4A11 11 0 1 0 30 6z"/><path d="M34 10l-5 5 4 4 5-5"/></svg>
       <h3>Latest Equipment</h3>
       <p>Current technologies, all under one roof.</p>
     </div>
-    <div class="trust__item">
-      <svg class="trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="9" width="30" height="33" rx="3"/><path d="M19 9V6h10v3z"/><path d="M17 22h8M17 29h8"/><path d="M28 32l3.5 3.5L38 28"/></svg>
+    <div class="gm-trust__item">
+      <svg class="gm-trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="9" width="30" height="33" rx="3"/><path d="M19 9V6h10v3z"/><path d="M17 22h8M17 29h8"/><path d="M28 32l3.5 3.5L38 28"/></svg>
       <h3>Insurance Approved</h3>
       <p>Approved by most major insurers.</p>
     </div>
-    <div class="trust__item">
-      <svg class="trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="19" r="12"/><path d="M19 19l4 4 7-8"/><path d="M16 30l-3 13 11-5 11 5-3-13"/></svg>
+    <div class="gm-trust__item">
+      <svg class="gm-trust__i" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="19" r="12"/><path d="M19 19l4 4 7-8"/><path d="M16 30l-3 13 11-5 11 5-3-13"/></svg>
       <h3>Mopar&reg; Certified</h3>
       <p>Factory-certified collision repair centre.</p>
     </div>
@@ -937,18 +937,18 @@
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section class="section" id="gmcc-about">
-  <div class="wrap split">
-    <div class="split__media">
+<section class="gm-section" id="gmcc-about">
+  <div class="gm-wrap gm-split">
+    <div class="gm-split__media">
       <img src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/about-shop.jpg" alt="A body shop technician closely inspecting a repaired vehicle panel" width="760" height="950" loading="lazy">
-      <span class="tag">About Us</span>
+      <span class="gm-tag">About Us</span>
     </div>
-    <div class="split__body">
-      <p class="eyebrow">About Us</p>
+    <div class="gm-split__body">
+      <p class="gm-eyebrow">About Us</p>
       <h2>Knowledge and hands-on experience, under one roof</h2>
-      <p class="lead"><strong>Golden Mile Chrysler's authorized body shop</strong> is known for being one of the most reliable and trustworthy auto collision repair facilities in the GTA. Our shops house the latest equipment and technologies, supported by a team of skilled professionals who bring together a wealth of knowledge and hands-on experience under one roof.</p>
+      <p class="gm-lead"><strong>Golden Mile Chrysler's authorized body shop</strong> is known for being one of the most reliable and trustworthy auto collision repair facilities in the GTA. Our shops house the latest equipment and technologies, supported by a team of skilled professionals who bring together a wealth of knowledge and hands-on experience under one roof.</p>
 
-      <ul class="pillars">
+      <ul class="gm-pillars">
         <li>
           <h3>Trust</h3>
           <p>We are dedicated to servicing you honestly and never steering you wrong.</p>
@@ -967,14 +967,14 @@
 </section>
 
 <!-- ================= SERVICES ================= -->
-<section class="services" id="gmcc-services">
-  <div class="wrap">
-    <p class="eyebrow eyebrow--light center">What We Do</p>
-    <h2 class="services__title">Collision Repair Experts</h2>
+<section class="gm-services" id="gmcc-services">
+  <div class="gm-wrap">
+    <p class="gm-eyebrow gm-eyebrow--light gm-center">What We Do</p>
+    <h2 class="gm-services__title">Collision Repair Experts</h2>
 
-    <div class="services__grid">
-      <article class="svc">
-        <svg class="svc__i" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+    <div class="gm-services__grid">
+      <article class="gm-svc">
+        <svg class="gm-svc__i" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
           <circle cx="13" cy="28" r="6"/>
           <path d="M6 27h14a7 7 0 0 0-14 0z"/>
           <path d="M4 52v-6a9 9 0 0 1 18 0v6"/>
@@ -986,8 +986,8 @@
         <p>We don't just fix damaged cars, we restore them to their pre-accident / factory specifications and showroom condition.</p>
       </article>
 
-      <article class="svc">
-        <svg class="svc__i" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <article class="gm-svc">
+        <svg class="gm-svc__i" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
           <path d="M24 48V37l5-2 5-7h15l5 7 5 2v11"/>
           <circle cx="32" cy="48" r="4.5"/><circle cx="51" cy="48" r="4.5"/>
           <path d="M31 28l-2 7h24l-2-7"/>
@@ -998,8 +998,8 @@
         <p>From frame damage repair to dent and full body restorations &mdash; alignments, glass, air conditioning, airbags, mechanical, electrical and more.</p>
       </article>
 
-      <article class="svc">
-        <svg class="svc__i" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <article class="gm-svc">
+        <svg class="gm-svc__i" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
           <rect x="13" y="10" width="38" height="46" rx="3"/>
           <path d="M26 10V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v3z"/>
           <path d="M21 24h11M21 32h11M21 40h7"/>
@@ -1011,30 +1011,30 @@
       </article>
     </div>
 
-    <p class="services__foot">Not sure where to start? <a href="#gmcc-contact">Get in touch</a> or call us at <a href="tel:+14164026782">(416) 402-6782</a>.</p>
+    <p class="gm-services__foot">Not sure where to start? <a href="#gmcc-contact">Get in touch</a> or call us at <a href="tel:+14164026782">(416) 402-6782</a>.</p>
   </div>
 </section>
 
 <!-- ================= WE CARE ABOUT YOU ================= -->
-<section class="care" id="gmcc-care">
-  <div class="care__media">
+<section class="gm-care" id="gmcc-care">
+  <div class="gm-care__media">
     <img src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/high-five.jpg" alt="Two people sharing a celebratory high-five" width="1400" height="933" loading="lazy">
   </div>
-  <div class="care__panel">
-    <div class="care__inner">
-      <p class="eyebrow eyebrow--light">Why Choose Us</p>
+  <div class="gm-care__panel">
+    <div class="gm-care__inner">
+      <p class="gm-eyebrow gm-eyebrow--light">Why Choose Us</p>
       <h2>We care about you</h2>
       <p>We are committed to achieving excellence in our work and in the service we offer to our customers. With every repair, we aim to return your car exactly how it was when it left the factory floor, and in many instances we even go a step further by returning it in a superior state and condition.</p>
       <p>We are focused on doing the job right the first time and getting you and your vehicle back on the road so that you can move on with your life quickly, conveniently, safely and with the least amount of stress.</p>
-      <p class="care__sig">because we care.</p>
+      <p class="gm-care__sig">because we care.</p>
     </div>
   </div>
 </section>
 
 <!-- ================= TESTIMONIAL ================= -->
-<section class="quote">
-  <div class="wrap quote__inner">
-    <img class="quote__avatar" src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/testimonial.jpg" alt="" width="160" height="160" loading="lazy">
+<section class="gm-quote">
+  <div class="gm-wrap gm-quote__inner">
+    <img class="gm-quote__avatar" src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/testimonial.jpg" alt="" width="160" height="160" loading="lazy">
     <blockquote>
       <p>Excellent service! They kept me updated during the entire process &ndash; costs, time-frames etc. Incredible experience and I received a flawless repair! Highly recommended.</p>
     </blockquote>
@@ -1042,19 +1042,19 @@
 </section>
 
 <!-- ================= OUR PROMISE ================= -->
-<section class="section section--alt" id="gmcc-promise">
-  <div class="wrap split split--rev">
-    <div class="split__media">
+<section class="gm-section gm-section--alt" id="gmcc-promise">
+  <div class="gm-wrap gm-split gm-split--rev">
+    <div class="gm-split__media">
       <img src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/car-detail.jpg" alt="A finished vehicle returned to showroom condition" width="700" height="793" loading="lazy">
-      <span class="tag">Our Promise</span>
+      <span class="gm-tag">Our Promise</span>
     </div>
-    <div class="split__body">
-      <p class="eyebrow">Our Promise</p>
+    <div class="gm-split__body">
+      <p class="gm-eyebrow">Our Promise</p>
       <h2>Our core values define us</h2>
       <p>Golden Mile Chrysler's authorized body shop was founded on core principles of honesty, compassion and the belief that our expertise and experience will generate repairs that exceed our customer's expectations.</p>
       <p>We focus on continuous improvement through every step of our process and promise to always care and treat you with respect and appreciation. To us, you are more than just a &ldquo;customer&rdquo; &mdash; in fact we prefer to see you as an extended member of our family.</p>
 
-      <ul class="values">
+      <ul class="gm-values">
         <li>Exceptional Customer Care</li>
         <li>Honest and Accurate Estimates</li>
         <li>Superior Quality Repairs</li>
@@ -1067,35 +1067,35 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section class="contact" id="gmcc-contact">
-  <div class="wrap contact__grid">
+<section class="gm-contact" id="gmcc-contact">
+  <div class="gm-wrap gm-contact__grid">
 
-    <div class="contact__info">
-      <p class="eyebrow eyebrow--light">Need to reach us?</p>
+    <div class="gm-contact__info">
+      <p class="gm-eyebrow gm-eyebrow--light">Need to reach us?</p>
       <h2>Contact us</h2>
-      <p class="contact__intro">Golden Mile Chrysler's Authorized Body Shop</p>
-      <p class="contact__blurb">Tell us what happened and we'll get back to you with an honest, accurate estimate. Give us a call, or drop by the shop on Eglinton Ave East.</p>
+      <p class="gm-contact__intro">Golden Mile Chrysler's Authorized Body Shop</p>
+      <p class="gm-contact__blurb">Tell us what happened and we'll get back to you with an honest, accurate estimate. Give us a call, or drop by the shop on Eglinton Ave East.</p>
     </div>
 
-    <div class="contact__details">
-      <dl class="contact__list">
+    <div class="gm-contact__details">
+      <dl class="gm-contact__list">
         <div>
-          <dt><svg class="i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg> Address</dt>
+          <dt><svg class="gm-i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg> Address</dt>
           <dd><a href="https://maps.google.com/?q=1743+Eglinton+Ave+E,+Toronto+ON+M4A+1J8" target="_blank" rel="noopener">1743 Eglinton Ave E,<br>Toronto ON M4A 1J8</a></dd>
         </div>
         <div>
-          <dt><svg class="i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.6l1.8 4.5-2.3 1.6a12.5 12.5 0 0 0 6.8 6.8l1.6-2.3L21 15.4V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg> Phone</dt>
+          <dt><svg class="gm-i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.6l1.8 4.5-2.3 1.6a12.5 12.5 0 0 0 6.8 6.8l1.6-2.3L21 15.4V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg> Phone</dt>
           <dd><a href="tel:+14164026782">(416) 402-6782</a></dd>
         </div>
         <div>
-          <dt><svg class="i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg> Online</dt>
+          <dt><svg class="gm-i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg> Online</dt>
           <dd><a href="https://goldenmilechrysler.ca" target="_blank" rel="noopener">goldenmilechrysler.ca</a></dd>
         </div>
       </dl>
 
-      <div class="emergency">
-        <p class="emergency__label">24/7 Emergency Contact</p>
-        <a class="emergency__tel" href="tel:+14164026782">(416) 402-6782</a>
+      <div class="gm-emergency">
+        <p class="gm-emergency__label">24/7 Emergency Contact</p>
+        <a class="gm-emergency__tel" href="tel:+14164026782">(416) 402-6782</a>
       </div>
     </div>
 
@@ -1106,30 +1106,30 @@
 </main>
 
 <!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <div class="footer__brand">
-      <div class="footer__logo">
+<footer class="gm-footer">
+  <div class="gm-wrap gm-footer__inner">
+    <div class="gm-footer__brand">
+      <div class="gm-footer__logo">
         <img src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/logo-gmc-full.png" alt="Golden Mile Chrysler &mdash; Chrysler, Dodge, Jeep and Ram" width="460" height="310">
       </div>
-      <p class="footer__tagline">Golden Mile Chrysler's Certified Collision Repair Centre</p>
+      <p class="gm-footer__tagline">Golden Mile Chrysler's Certified Collision Repair Centre</p>
     </div>
 
-    <div class="footer__cert">
-      <div class="mopar">
-        <svg class="mopar__arc" width="200" height="26" viewBox="0 0 200 26" aria-hidden="true"><path d="M2 24C40 4 160 4 198 24"/></svg>
-        <span class="mopar__name">MOPAR<sup>&reg;</sup></span>
-        <span class="mopar__line">Certified Collision Repair Facility</span>
+    <div class="gm-footer__cert">
+      <div class="gm-mopar">
+        <svg class="gm-mopar__arc" width="200" height="26" viewBox="0 0 200 26" aria-hidden="true"><path d="M2 24C40 4 160 4 198 24"/></svg>
+        <span class="gm-mopar__name">MOPAR<sup>&reg;</sup></span>
+        <span class="gm-mopar__line">Certified Collision Repair Facility</span>
       </div>
     </div>
 
-    <div class="footer__contact">
+    <div class="gm-footer__contact">
       <p><a href="https://maps.google.com/?q=1743+Eglinton+Ave+E,+Toronto+ON+M4A+1J8" target="_blank" rel="noopener">1743 Eglinton Ave E, Toronto ON M4A 1J8</a></p>
       <p><a href="tel:+14164026782">(416) 402-6782</a></p>
       <p><a href="https://goldenmilechrysler.ca" target="_blank" rel="noopener">goldenmilechrysler.ca</a></p>
     </div>
   </div>
-  <div class="wrap footer__bar">
+  <div class="gm-wrap gm-footer__bar">
     <p>&copy; <span id="gmcc-yr">2026</span> Golden Mile Chrysler. All rights reserved.</p>
     <p>The GTA's most trusted collision repair facility.</p>
   </div>
@@ -1137,7 +1137,7 @@
 
 <script>
   document.getElementById('gmcc-yr').textContent = new Date().getFullYear();
-  document.querySelectorAll('#gmcc .nav a').forEach(function (a) {
+  document.querySelectorAll('#gmcc .gm-nav a').forEach(function (a) {
     a.addEventListener('click', function () {
       document.getElementById('gmcc-navtoggle').checked = false;
     });

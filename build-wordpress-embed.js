@@ -15,14 +15,33 @@ const CDN = 'https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@
 const css = fs.readFileSync(p.join(SRC, 'styles.css'), 'utf8');
 const html = fs.readFileSync(p.join(SRC, 'index.html'), 'utf8');
 
-/* ---------- 1. scope the CSS ---------- */
+/* ---------- 1. namespace the class names ----------
+   Scoping under #gmcc stops our CSS reaching the theme, but not the theme's
+   CSS reaching us: class names like .header, .nav, .hero, .btn, .section and
+   .wrap are exactly what a dealership theme calls its own furniture, and a
+   theme rule that is more specific (or uses !important) still wins. Renaming
+   every class means no theme rule can match our markup at all. */
+const NS = 'gm-';
+const CLASSES = new Set([
+  ...(html.match(/class="([^"]*)"/g) || [])
+    .flatMap(a => a.slice(7, -1).trim().split(/\s+/))
+    .filter(Boolean),
+  // also anything the stylesheet styles but the markup does not currently use,
+  // so no class selector is left behind for the theme to match
+  ...(css.match(/\.(-?[A-Za-z_][\w-]*)/g) || []).map(c => c.slice(1)),
+]);
+
+const nsSelector = s => s.replace(/\.(-?[A-Za-z_][\w-]*)/g,
+  (m, c) => CLASSES.has(c) ? '.' + NS + c : m);
+
+/* ---------- 2. scope the CSS ---------- */
 
 function scopeSelector(sel) {
   return sel.split(',').map(s => {
     s = s.trim();
     if (!s) return s;
     if (s === ':root' || s === 'html' || s === 'body') return SCOPE;  // page-level -> the wrapper
-    return SCOPE + ' ' + s;
+    return SCOPE + ' ' + nsSelector(s);
   }).join(', ');
 }
 
@@ -51,7 +70,16 @@ function transform(text) {
       const nested = /^@(media|supports|layer|container)\b/.test(sel);
       out += trivia + lead + sel + ' {' + (nested ? transform(body) : body) + '}';
     } else {
-      out += trivia + lead + scopeSelector(sel) + ' {' + body + '}';
+      const scopedSel = scopeSelector(sel);
+      let rule = body;
+      // An inline <svg> carries no intrinsic size, so a theme rule as ordinary
+      // as `svg { width: 100% }` resizes every icon, and with !important it wins
+      // outright. These four classes are the only sized svgs we have; pin them.
+      if (/\.gm-(i|trust__i|svc__i|mopar__arc)\b/.test(scopedSel)) {
+        rule = rule.replace(/(^|[;{\s])(width|height)\s*:\s*([^;!]+);/g,
+                            (m, pre, prop, val) => `${pre}${prop}: ${val.trim()} !important;`);
+      }
+      out += trivia + lead + scopedSel + ' {' + rule + '}';
     }
     i = j;
   }
@@ -149,9 +177,13 @@ for (const id of ['main', 'about', 'services', 'care', 'promise', 'contact', 'na
              .replace(new RegExp(`for="${id}"`, 'g'), `for="gmcc-${id}"`)
              .replace(new RegExp(`getElementById\\('${id}'\\)`, 'g'), `getElementById('gmcc-${id}')`);
 }
+// namespace the class attributes to match the renamed selectors
+body = body.replace(/class="([^"]*)"/g, (m, v) =>
+  'class="' + v.trim().split(/\s+/).map(c => CLASSES.has(c) ? NS + c : c).join(' ') + '"');
+
 // keep the inline script's nav selector inside our wrapper
 body = body.replace("document.querySelectorAll('.nav a')",
-                    "document.querySelectorAll('#gmcc .nav a')");
+                    `document.querySelectorAll('#gmcc .${NS}nav a')`);
 
 const out = `<!--
   Golden Mile Chrysler - Collision Centre

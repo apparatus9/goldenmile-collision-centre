@@ -85,6 +85,14 @@ What the build changes:
   the wrapper div.
 - prepends a low-specificity reset inside `#gmcc`, so the theme does not reach *in*
   either (img borders, list bullets, blockquote decoration, uppercase headings).
+- renames every class with a `gm-` prefix. Scoping stops our CSS reaching the
+  theme but not the theme reaching us, and `.header`, `.nav`, `.hero`, `.btn`,
+  `.section` and `.wrap` are exactly what a dealership theme calls its own
+  furniture. A theme rule that is more specific, or uses `!important`, wins
+  against ours. Renaming means none of its rules can match our markup at all.
+- pins the four sized svg classes with `!important`. An inline `<svg>` has no
+  intrinsic size, so a theme rule as ordinary as `svg { width: 100% }` resizes
+  every icon on the page.
 - prefixes every id — `#main` becomes `#gmcc-main`, and so on.
 - gives each inline `<svg>` explicit `width`/`height`. Without them an svg with only
   a `viewBox` has no intrinsic size and expands to fill its container if the CSS
@@ -102,8 +110,10 @@ column to full viewport width; a sidebar will overlap it. To keep it inside the
 column instead, delete the single line marked `FULL-BLEED` in the `<style>` block —
 the script at the bottom checks that rule and follows suit.
 
-Checked against a deliberately hostile test theme (uppercase headings, bulleted
-lists, bordered images, decorated blockquotes, a page-wide `* { font-family }`):
-43 elements measured across 24 computed properties at 390px, 900px and 1440px,
-zero differences from the standalone page, and zero changes to the theme's own
-markup.
+Checked against a deliberately hostile test theme: uppercase headings, bulleted
+lists, bordered images, decorated blockquotes, a page-wide `* { font-family }`,
+`svg { width: 300px !important }`, and `!important` rules on `.header`, `.nav`,
+`.hero`, `.btn`, `.section`, `.wrap`, `.footer` and a dozen more of our own class
+names. 43 elements measured across 24 computed properties at 390, 600, 900, 1100
+and 1440px: zero differences from the standalone page, and zero changes to the
+theme's own markup.
