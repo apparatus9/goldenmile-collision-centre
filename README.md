@@ -127,3 +127,31 @@ lists, bordered images, decorated blockquotes, a page-wide `* { font-family }`,
 names, at four different root font sizes (62.5%, 10px, 20px, 24px). 43 elements
 measured across 24 computed properties at 390, 600, 900, 1100 and 1440px: zero
 differences from the standalone page, and zero changes to the theme's own markup.
+
+### wordpress-embed-isolated.html
+
+The same page, rendered inside a **shadow root**. Everything in the plain embed is
+a fight over one shared cascade — our rules and the theme's rules in one document,
+and we win only where we out-specify it. There is always a theme rule specific
+enough to beat us: `#main div { display: block !important }` collapses every grid
+in the design, and no amount of scoping or namespacing answers it.
+
+Theme CSS cannot select into a shadow root at all. The only thing that still
+crosses the boundary is inherited properties, which `:host { all: initial }`
+clears. Two things come free with it:
+
+- the markup sits in a `<template>` on a single line, so `wpautop` has no blank
+  line to split on and cannot insert `<p>` tags into our grids,
+- our CSS cannot escape either, so the defensive reset and the `!important` work
+  become belt and braces rather than load-bearing.
+
+`rem` still resolves against the document root inside a shadow tree, so the px
+conversion is still doing real work.
+
+Trade-offs: it needs JavaScript, and the text lives in the shadow tree rather than
+the page's own DOM. Google renders with Chrome and indexes shadow content, but if
+this page has to rank, the plain embed keeps the copy in the light DOM.
+
+Measured against a theme carrying `#main div, #main section, #main ul, #main dl
+{ display: block !important }` plus everything the plain embed already survives:
+the plain embed shows 101 differences at 1440px, the isolated build shows zero.

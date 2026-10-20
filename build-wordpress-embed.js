@@ -240,3 +240,94 @@ ${BLEED}
 fs.writeFileSync(OUT, out, 'utf8');
 console.log('wrote', OUT);
 console.log('size', (out.length / 1024).toFixed(1) + ' KB');
+
+/* ---------- 3. the isolated variant ----------
+   Everything above is a fight over the cascade: our rules and the theme's rules
+   live in one document, and we win only where we out-specify it. A shadow root
+   ends the argument. Theme CSS cannot select into one at all, so the only thing
+   that still crosses the boundary is inherited properties, which `all: initial`
+   on :host clears. Two other things come free:
+     - the markup sits in a <template> on a single line, so wpautop cannot
+       insert <p> tags into our grids however the page is edited,
+     - our CSS cannot escape either, so the DEFENCE/!important work is belt and
+       braces rather than load-bearing.
+   rem still resolves against the document root inside a shadow tree, so the
+   px conversion above is still doing real work.
+   Trade-off: it needs JavaScript, and the text lives in the shadow tree rather
+   than the page's own DOM. */
+
+const SHADOW_OUT = p.join(__dirname, 'wordpress-embed-isolated.html');
+
+// one line, so wpautop has no blank line to split on
+const oneLine = s => s.replace(/\r?\n/g, ' ').replace(/[ \t]{2,}/g, ' ').trim();
+
+// the year/nav script has to move out: it must run against the shadow root
+const shadowBody = body.replace(/<script>[\s\S]*?<\/script>/, '').trim();
+
+const shadowCss = `:host { all: initial; display: block; }\n` + DEFENCE + scoped + `
+${SCOPE} { box-sizing: border-box; }
+`;
+
+const HOST_STYLE = [
+  'display:block', 'padding:0', 'border:0', 'background:none',
+  'width:auto', 'max-width:none', 'float:none',
+  // FULL-BLEED: delete the two margins to keep it inside the theme's column
+  'margin-left:calc(50% - 50vw)', 'margin-right:calc(50% - 50vw)',
+].join(';');
+
+const boot = oneLine(`
+(function () {
+  var host = document.getElementById('gmcc-host'),
+      tpl  = document.getElementById('gmcc-tpl');
+  if (!host || !tpl || host.shadowRoot) return;
+
+  if (!document.getElementById('gmcc-fonts')) {
+    var l = document.createElement('link');
+    l.id = 'gmcc-fonts'; l.rel = 'stylesheet';
+    l.href = 'https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Barlow:wght@300;400;500;600&display=swap';
+    document.head.appendChild(l);
+  }
+
+  var root = host.attachShadow({ mode: 'open' });
+  root.appendChild(tpl.content.cloneNode(true));
+  tpl.parentNode.removeChild(tpl);
+
+  var yr = root.getElementById('gmcc-yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  var toggle = root.getElementById('gmcc-navtoggle');
+  root.querySelectorAll('.${NS}nav a').forEach(function (a) {
+    a.addEventListener('click', function () { if (toggle) toggle.checked = false; });
+  });
+
+  if (parseFloat(getComputedStyle(host).marginLeft) < 0) {
+    var bleed = function () {
+      host.style.marginLeft = host.style.marginRight = '0';
+      var r = host.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+      host.style.marginLeft  = Math.min(0, -r.left) + 'px';
+      host.style.marginRight = Math.min(0, -(vw - r.right)) + 'px';
+    };
+    bleed();
+    window.addEventListener('resize', bleed);
+  }
+})();
+`);
+
+const shadowOut = `<!--
+  Golden Mile Chrysler - Collision Centre (isolated build)
+
+  Paste this whole thing into ONE "Custom HTML" block, or the "Text" tab of the
+  Classic editor. The page renders inside a shadow root, so the theme's CSS
+  cannot reach it and ours cannot reach the theme. Needs JavaScript.
+
+  Full-bleed is the two margin-* values in the host div's style attribute below.
+  Delete them to keep the block inside the theme's content column.
+-->
+<div id="gmcc-host" style="${HOST_STYLE}"></div>
+<template id="gmcc-tpl">${oneLine('<style>' + shadowCss + '</style>' + `<div id="gmcc">${shadowBody}</div>`)}</template>
+<script>${boot}<\/script>
+`;
+
+fs.writeFileSync(SHADOW_OUT, shadowOut, 'utf8');
+console.log('wrote', SHADOW_OUT);
+console.log('size', (shadowOut.length / 1024).toFixed(1) + ' KB');
