@@ -113,8 +113,10 @@ What the build changes:
 - removes our own header — logo, nav and phone. The site already has a header
   and a nav, and two of each on one page reads as a page inside a page. The
   mobile nav toggle and burger live inside it and go with it. `index.html`
-  keeps its header: standalone there is no other chrome. The dark contact strip
-  above it stays, since it carries the address and the 24/7 number.
+  keeps its header: standalone there is no other chrome.
+- removes the dark contact strip above it too (address, 24/7 number). Both
+  details still appear in the Contact section and in the footer, so nothing is
+  lost. The embeds open on the hero.
 
 Paste it into **one Custom HTML block** (block editor) or the **Text** tab of the
 Classic editor. The visual editor rewrites markup and will break the layout.

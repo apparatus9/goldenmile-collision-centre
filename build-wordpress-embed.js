@@ -205,6 +205,11 @@ let body = html.slice(html.indexOf('<body>') + 6, html.lastIndexOf('</body>'));
    and matching nothing. */
 body = body.replace(/<!-- ={2,} HEADER ={2,} -->[\s\S]*?<\/header>\s*/, '');
 
+/* The dark strip above it goes too - address on the left, 24/7 number on the
+   right. Both still appear in the Contact section and in the footer, so nothing
+   is lost by dropping it here. The embeds now open on the hero. */
+body = body.replace(/<!-- ={2,} UTILITY BAR ={2,} -->[\s\S]*?<\/div>\s*<\/div>\s*/, '');
+
 // absolute image urls
 body = body.replace(/src="assets\/([^"]+)"/g, (m, f) => `src="${CDN}${f}"`);
 
