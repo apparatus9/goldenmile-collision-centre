@@ -847,6 +847,39 @@
   #gmcc .gm-hero__scrim { background: none; }
 }
 
+/* ---- bodyshop bar (embeds only) ------------------------------------- */
+#gmcc .gm-shopbar { background: var(--ink-deep); }
+#gmcc .gm-shopbar__inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 8px 24px;
+  min-height: 56px; padding-block: 10px;
+}
+#gmcc .gm-shopbar__name {
+  margin: 0;
+  font-family: var(--ff-display) !important;
+  font-weight: 700;
+  font-size: 19.2px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+#gmcc .gm-shopbar__name b { color: var(--orange); font-weight: 700; }
+#gmcc .gm-shopbar__tel {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--ff-display) !important;
+  font-weight: 700;
+  font-size: 18px !important;
+  color: #fff;
+  white-space: nowrap;
+}
+#gmcc .gm-shopbar__tel:hover { color: var(--orange); text-decoration: none; }
+#gmcc .gm-shopbar__tel .gm-i {
+  color: var(--orange); width: 1.15em !important; height: 1.15em !important;
+}
+@media (max-width: 560px) {
+  #gmcc .gm-shopbar__inner { justify-content: center; text-align: center; }
+}
+
 
 /* ---- wrapper -------------------------------------------------------- */
 #gmcc { box-sizing: border-box; }
@@ -860,6 +893,17 @@
 
 <div id="gmcc">
 <a class="gm-skip" href="#gmcc-main">Skip to content</a>
+
+<!-- ================= BODYSHOP BAR ================= -->
+<div class="gm-shopbar">
+  <div class="gm-wrap gm-shopbar__inner">
+    <p class="gm-shopbar__name">Body<b>shop</b></p>
+    <a class="gm-shopbar__tel" href="tel:+14164026782">
+      <svg class="gm-i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.6l1.8 4.5-2.3 1.6a12.5 12.5 0 0 0 6.8 6.8l1.6-2.3L21 15.4V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg>
+      <span>(416) 402-6782</span>
+    </a>
+  </div>
+</div>
 
 <main id="gmcc-main">
 

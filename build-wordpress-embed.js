@@ -229,6 +229,62 @@ for (const id of ['main', 'about', 'services', 'care', 'promise', 'contact', 'na
 body = body.replace(/class="([^"]*)"/g, (m, v) =>
   'class="' + v.trim().split(/\s+/).map(c => CLASSES.has(c) ? NS + c : c).join(' ') + '"');
 
+/* A slim bar in place of the header we removed: the shop's name and its phone
+   number, and nothing the theme's own header already carries. Written with the
+   final namespaced class names and its own scoped CSS, since the renaming pass
+   above has already run by this point. Embeds only - index.html has a full
+   header of its own. */
+const SHOPBAR_CSS = `
+/* ---- bodyshop bar (embeds only) ------------------------------------- */
+${SCOPE} .${NS}shopbar { background: var(--ink-deep); }
+${SCOPE} .${NS}shopbar__inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 8px 24px;
+  min-height: 56px; padding-block: 10px;
+}
+${SCOPE} .${NS}shopbar__name {
+  margin: 0;
+  font-family: var(--ff-display) !important;
+  font-weight: 700;
+  font-size: 19.2px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+${SCOPE} .${NS}shopbar__name b { color: var(--orange); font-weight: 700; }
+${SCOPE} .${NS}shopbar__tel {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--ff-display) !important;
+  font-weight: 700;
+  font-size: 18px !important;
+  color: #fff;
+  white-space: nowrap;
+}
+${SCOPE} .${NS}shopbar__tel:hover { color: var(--orange); text-decoration: none; }
+${SCOPE} .${NS}shopbar__tel .${NS}i {
+  color: var(--orange); width: 1.15em !important; height: 1.15em !important;
+}
+@media (max-width: 560px) {
+  ${SCOPE} .${NS}shopbar__inner { justify-content: center; text-align: center; }
+}
+`;
+
+const SHOPBAR_HTML = `
+<!-- ================= BODYSHOP BAR ================= -->
+<div class="${NS}shopbar">
+  <div class="${NS}wrap ${NS}shopbar__inner">
+    <p class="${NS}shopbar__name">Body<b>shop</b></p>
+    <a class="${NS}shopbar__tel" href="tel:+14164026782">
+      <svg class="${NS}i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.6l1.8 4.5-2.3 1.6a12.5 12.5 0 0 0 6.8 6.8l1.6-2.3L21 15.4V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg>
+      <span>(416) 402-6782</span>
+    </a>
+  </div>
+</div>
+`;
+
+scoped += SHOPBAR_CSS;
+body = body.replace(/<main /, SHOPBAR_HTML.trim() + '\n\n<main ');
+
 // keep the inline script's nav selector inside our wrapper
 body = body.replace("document.querySelectorAll('.nav a')",
                     `document.querySelectorAll('#gmcc .${NS}nav a')`);

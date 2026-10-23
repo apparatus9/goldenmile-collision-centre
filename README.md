@@ -116,7 +116,10 @@ What the build changes:
   keeps its header: standalone there is no other chrome.
 - removes the dark contact strip above it too (address, 24/7 number). Both
   details still appear in the Contact section and in the footer, so nothing is
-  lost. The embeds open on the hero.
+  lost.
+- adds a slim bar in their place carrying `Bodyshop` and (416) 402-6782 — the
+  two things the theme header does not say. Dark ground, Archivo, orange phone
+  icon; centres on one line under 560px. Embeds only.
 
 Paste it into **one Custom HTML block** (block editor) or the **Text** tab of the
 Classic editor. The visual editor rewrites markup and will break the layout.
