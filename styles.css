@@ -355,6 +355,26 @@ a:hover { text-decoration: underline; }
 }
 
 /* ===================================================== sections ========= */
+/* ================================================= right to choose ====== */
+/* Sits between the trust strip and About. Orange tint rather than a full
+   orange fill, so it carries weight without competing with the "We care
+   about you" panel further down. */
+.choice {
+  background: var(--orange-tint);
+  border-bottom: 1px solid #f0ddcd;
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+.choice__inner { max-width: 760px; margin-inline: auto; text-align: center; }
+.choice h2 { margin-bottom: .55em; }
+.choice__lead {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 1.14rem;
+  color: var(--orange-text);
+  margin-bottom: 1em;
+}
+.choice p:last-child { margin-bottom: 0; }
+
 .section { padding-block: clamp(4rem, 8vw, 6.5rem); }
 .section--alt { background: var(--surface); }
 

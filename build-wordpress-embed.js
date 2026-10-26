@@ -274,9 +274,9 @@ const SHOPBAR_HTML = `
 <div class="${NS}shopbar">
   <div class="${NS}wrap ${NS}shopbar__inner">
     <p class="${NS}shopbar__name">Body<b>shop</b></p>
-    <a class="${NS}shopbar__tel" href="tel:+14164026782">
+    <a class="${NS}shopbar__tel" href="tel:+14373715007">
       <svg class="${NS}i" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.6l1.8 4.5-2.3 1.6a12.5 12.5 0 0 0 6.8 6.8l1.6-2.3L21 15.4V19a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3z"/></svg>
-      <span>(416) 402-6782</span>
+      <span>(437) 371-5007</span>
     </a>
   </div>
 </div>

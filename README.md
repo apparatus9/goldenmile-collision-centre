@@ -24,6 +24,16 @@ to the brochure's Museo-style sans. Corners are square (`--radius: 2px`) to matc
 All copy is lifted verbatim from the two brochure panels: Our Promise, About Us, What We Do,
 Why Choose Us, We Care About You, the testimonial, and the contact block.
 
+One section is not from the brochure: **Your right to choose**, between the trust strip
+and About. It was supplied as rough copy and tightened. It states that the customer
+picks the shop and the insurer cannot, that the dealership is an authorized Chrysler
+facility repairing to Chrysler specifications, and that repairs carry a lifetime
+warranty — all four claims from the original, nothing added. Worth a read by whoever
+signs off on advertising claims before it goes live.
+
+**Phone.** The page shows (437) 371-5007 throughout. That number is intended to forward
+to (416) 402-6782; the forwarding is a carrier setting, not part of this page.
+
 ## Logo
 
 Both logo files come from `All Logos/GoldenMileChryslerDodgeJeepRam LOGO.gif`, with the white
@@ -117,7 +127,7 @@ What the build changes:
 - removes the dark contact strip above it too (address, 24/7 number). Both
   details still appear in the Contact section and in the footer, so nothing is
   lost.
-- adds a slim bar in their place carrying `Bodyshop` and (416) 402-6782 — the
+- adds a slim bar in their place carrying `Bodyshop` and (437) 371-5007 — the
   two things the theme header does not say. Dark ground, Archivo, orange phone
   icon; centres on one line under 560px. Embeds only.
 
