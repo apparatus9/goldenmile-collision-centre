@@ -75,7 +75,7 @@ function transform(text) {
       // An inline <svg> carries no intrinsic size, so a theme rule as ordinary
       // as `svg { width: 100% }` resizes every icon, and with !important it wins
       // outright. These four classes are the only sized svgs we have; pin them.
-      if (/\.gm-(i|trust__i|svc__i|mopar__arc)\b/.test(scopedSel)) {
+      if (/\.gm-(i|trust__i|svc__i)\b/.test(scopedSel)) {
         rule = rule.replace(/(^|[;{\s])(width|height)\s*:\s*([^;!]+);/g,
                             (m, pre, prop, val) => `${pre}${prop}: ${val.trim()} !important;`);
       }

@@ -72,7 +72,6 @@
   --white:         #ffffff;
 
   /* Mopar certification mark */
-  --mopar:         #0a5ea8;
 
   --wrap:          1180px;
   --radius:        2px;        /* the brochure is hard-edged — keep it square */
@@ -354,19 +353,13 @@
   margin-bottom: 32px;
 }
 #gmcc .gm-hero__actions { display: flex; flex-wrap: wrap; gap: 13.6px; }
-#gmcc .gm-hero__cert {
-  margin: 35.2px 0 0;
-  display: flex;
-  align-items: center;
-  gap: 9.6px;
-  font-family: var(--ff-display) !important;
-  font-size: 12.48px !important;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.8);
+#gmcc .gm-hero__cert { margin: 35.2px 0 0; }
+#gmcc .gm-hero__cert img {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  height: auto;
 }
-#gmcc .gm-dot { width: 8px; height: 8px; background: var(--orange); flex: none; }
 
 /* ======================================================= trust ========== */
 #gmcc .gm-trust {
@@ -697,7 +690,7 @@
 #gmcc .gm-footer { background: #111; color: #9d9d9d; font-size: 14.72px !important; }
 #gmcc .gm-footer__inner {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
+  grid-template-columns: 1fr 1.25fr 1fr;
   gap: 40px;
   padding-block: 51.2px;
   align-items: start;
@@ -721,44 +714,14 @@
 #gmcc .gm-footer__contact a { color: #c9c9c9; }
 #gmcc .gm-footer__contact a:hover { color: var(--orange); }
 
-/* Mopar certification lockup — swap for the official mark when supplied */
+/* Official FCA / Mopar Certified Collision Repair Facility mark. The artwork is
+   a white card in its own right, so it needs no tile behind it on the dark footer. */
 #gmcc .gm-footer__cert { display: flex; justify-content: center; }
 #gmcc .gm-mopar {
-  background: #fff;
-  padding: 16px 25.6px 17.6px;
-  text-align: center;
-  border-radius: var(--radius);
-  max-width: 290px;
+  display: block;
   width: 100%;
-}
-#gmcc .gm-mopar__arc {
-  display: block;
-  width: 100% !important;
-  height: 22px !important;
-  fill: none;
-  stroke: #111;
-  stroke-width: 3;
-}
-#gmcc .gm-mopar__name {
-  display: block;
-  font-family: var(--ff-display) !important;
-  font-weight: 700;
-  font-size: 24px !important;
-  letter-spacing: .04em;
-  color: var(--mopar);
-  line-height: 1;
-  margin-top: -2.4px;
-}
-#gmcc .gm-mopar__name sup { font-size: .42em !important; top: -.9em; }
-#gmcc .gm-mopar__line {
-  display: block;
-  margin-top: 4.8px;
-  font-family: var(--ff-display) !important;
-  font-size: 11.84px !important;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--mopar);
+  max-width: 400px;
+  height: auto;
 }
 
 #gmcc .gm-footer__bar {
@@ -838,8 +801,6 @@
   #gmcc .gm-hero__inner { padding-block: 64px; }
   #gmcc .gm-hero__scrim { background: linear-gradient(180deg, rgba(20,20,20,.85) 0%, rgba(20,20,20,.9) 100%); }
   #gmcc .gm-hero__actions .gm-btn { flex: 1 1 auto; }
-  #gmcc .gm-hero__cert { align-items: flex-start; letter-spacing: .08em; font-size: 11.52px !important; }
-  #gmcc .gm-hero__cert .gm-dot { margin-top: .4em; }
 
   #gmcc .gm-trust__grid { grid-template-columns: 1fr; gap: 25.6px; padding-block: 40px; }
 
@@ -938,7 +899,7 @@
     <div class="gm-hero__actions">
       <a class="gm-btn gm-btn--primary" href="tel:+14373715007">Call 24/7 (437) 371-5007</a>
     </div>
-    <p class="gm-hero__cert"><span class="gm-dot"></span> Mopar&reg; Certified Collision Repair Facility</p>
+    <p class="gm-hero__cert"><img src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/mopar-certified.png" alt="FCA &mdash; Mopar&reg; Certified Collision Repair Facility (Chrysler, Dodge, Fiat, Jeep, Ram)" width="1400" height="310"></p>
   </div>
 </section>
 
@@ -1158,11 +1119,7 @@
     </div>
 
     <div class="gm-footer__cert">
-      <div class="gm-mopar">
-        <svg class="gm-mopar__arc" width="200" height="26" viewBox="0 0 200 26" aria-hidden="true"><path d="M2 24C40 4 160 4 198 24"/></svg>
-        <span class="gm-mopar__name">MOPAR<sup>&reg;</sup></span>
-        <span class="gm-mopar__line">Certified Collision Repair Facility</span>
-      </div>
+      <img class="gm-mopar" src="https://cdn.jsdelivr.net/gh/apparatus9/goldenmile-collision-centre@main/assets/mopar-certified.png" alt="FCA &mdash; Mopar&reg; Certified Collision Repair Facility (Chrysler, Dodge, Fiat, Jeep, Ram)" width="1400" height="310">
     </div>
 
     <div class="gm-footer__contact">

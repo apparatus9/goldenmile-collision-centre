@@ -30,7 +30,6 @@
   --white:         #ffffff;
 
   /* Mopar certification mark */
-  --mopar:         #0a5ea8;
 
   --wrap:          1180px;
   --radius:        2px;        /* the brochure is hard-edged — keep it square */
@@ -312,19 +311,13 @@ a:hover { text-decoration: underline; }
   margin-bottom: 2rem;
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .85rem; }
-.hero__cert {
-  margin: 2.2rem 0 0;
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  font-family: var(--ff-display);
-  font-size: .78rem;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.8);
+.hero__cert { margin: 2.2rem 0 0; }
+.hero__cert img {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  height: auto;
 }
-.dot { width: 8px; height: 8px; background: var(--orange); flex: none; }
 
 /* ======================================================= trust ========== */
 .trust {
@@ -655,7 +648,7 @@ a:hover { text-decoration: underline; }
 .footer { background: #111; color: #9d9d9d; font-size: .92rem; }
 .footer__inner {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
+  grid-template-columns: 1fr 1.25fr 1fr;
   gap: 2.5rem;
   padding-block: 3.2rem;
   align-items: start;
@@ -679,44 +672,14 @@ a:hover { text-decoration: underline; }
 .footer__contact a { color: #c9c9c9; }
 .footer__contact a:hover { color: var(--orange); }
 
-/* Mopar certification lockup — swap for the official mark when supplied */
+/* Official FCA / Mopar Certified Collision Repair Facility mark. The artwork is
+   a white card in its own right, so it needs no tile behind it on the dark footer. */
 .footer__cert { display: flex; justify-content: center; }
 .mopar {
-  background: #fff;
-  padding: 1rem 1.6rem 1.1rem;
-  text-align: center;
-  border-radius: var(--radius);
-  max-width: 290px;
-  width: 100%;
-}
-.mopar__arc {
   display: block;
   width: 100%;
-  height: 22px;
-  fill: none;
-  stroke: #111;
-  stroke-width: 3;
-}
-.mopar__name {
-  display: block;
-  font-family: var(--ff-display);
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: .04em;
-  color: var(--mopar);
-  line-height: 1;
-  margin-top: -.15rem;
-}
-.mopar__name sup { font-size: .42em; top: -.9em; }
-.mopar__line {
-  display: block;
-  margin-top: .3rem;
-  font-family: var(--ff-display);
-  font-size: .74rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--mopar);
+  max-width: 400px;
+  height: auto;
 }
 
 .footer__bar {
@@ -797,8 +760,6 @@ a:hover { text-decoration: underline; }
   .hero__inner { padding-block: 4rem; }
   .hero__scrim { background: linear-gradient(180deg, rgba(20,20,20,.85) 0%, rgba(20,20,20,.9) 100%); }
   .hero__actions .btn { flex: 1 1 auto; }
-  .hero__cert { align-items: flex-start; letter-spacing: .08em; font-size: .72rem; }
-  .hero__cert .dot { margin-top: .4em; }
 
   .trust__grid { grid-template-columns: 1fr; gap: 1.6rem; padding-block: 2.5rem; }
 

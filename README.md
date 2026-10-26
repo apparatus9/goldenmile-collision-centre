@@ -16,7 +16,6 @@ assets/         photography cropped from the brochure artwork
 | `--orange` | `#e8762b` | brochure orange, CMYK 6/69/100/0, read from the PDF content stream |
 | `--grey-panel-dk` | `#6e7073` | the grey "Collision Repair Experts" column |
 | `--ink` / `--ink-deep` | `#2f2f2f` / `#1d1d1d` | brochure body + dark panels |
-| `--mopar` | `#0a5ea8` | Mopar certification mark blue |
 
 Type is Archivo (headings) + Barlow (body) from Google Fonts — the closest free pairing
 to the brochure's Museo-style sans. Corners are square (`--radius: 2px`) to match the print piece.
@@ -46,15 +45,19 @@ Edge pixels are un-premultiplied against white so there is no halo on dark backg
   lockup is wider and the wordmark reads at header size.
 - `assets/logo-gmc-full.png` — footer, full lockup including the four make logos.
 
+`assets/mopar-certified.png` is the official FCA artwork, *FCA-MOPAR-badge-logo-CANADA-ENG-updated-20160603.png*,
+downscaled to 1400px wide and otherwise untouched — brand marks are not recoloured or recropped.
+It appears twice: under the hero call button, and in the footer's centre column. The artwork is
+already a white card with its own border, so it needs no tile behind it on either dark ground.
+
 The footer sits on near-black, where the navy "CHRYSLER" wordmark and the black make logos
 would disappear, so the footer logo is placed on a white tile matching the Mopar badge beside it.
 If you ever get a white/knockout version of the lockup, you can drop the tile (`.footer__logo`).
 
 ## Before this goes live
 
-1. **Mopar mark.** The footer Mopar badge (`.mopar`) is still a CSS stand-in — swap it for
-   the official "Certified Collision Repair Facility" artwork when you have it.
-   The Golden Mile Chrysler logo *is* the real artwork (see below).
+1. **Logos.** Both the Golden Mile Chrysler lockup and the Mopar Certified Collision Repair
+   Facility badge are the real artwork — nothing on the page is a stand-in any more.
 2. **Photography.** `hero-collage.jpg`, `about-shop.jpg`, `car-detail.jpg` and
    `testimonial.jpg` were cropped out of the brochure's flattened artwork, so they top out
    around 700–1400px wide — fine at the sizes used here, but not retina-sharp. If you have
