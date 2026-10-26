@@ -29,8 +29,6 @@
   --surface:       #f4f4f4;
   --white:         #ffffff;
 
-  /* Mopar certification mark */
-
   --wrap:          1180px;
   --radius:        2px;        /* the brochure is hard-edged — keep it square */
   --shadow:        0 2px 10px rgba(0,0,0,.06);
@@ -645,7 +643,7 @@ a:hover { text-decoration: underline; }
 .emergency__tel:hover { text-decoration: none; opacity: .9; }
 
 /* ======================================================== footer ======== */
-.footer { background: #111; color: #9d9d9d; font-size: .92rem; }
+.footer { background: var(--white); color: var(--muted); font-size: .92rem; }
 .footer__inner {
   display: grid;
   grid-template-columns: 1fr 1.25fr 1fr;
@@ -653,27 +651,23 @@ a:hover { text-decoration: underline; }
   padding-block: 3.2rem;
   align-items: start;
 }
-/* the lockup's wordmark and make logos are dark, so they sit on a white tile */
-.footer__logo {
-  display: inline-block;
-  background: #fff;
-  padding: .9rem 1.2rem;
-  border-radius: var(--radius);
-}
+/* The footer is white, so the lockup needs no tile — its own white ground,
+   the "MILE" wordmark and the sky behind the tree all sit on the same field. */
+.footer__logo { display: block; }
 .footer__logo img { width: 100%; max-width: 240px; height: auto; }
 .footer__tagline {
   margin: 1.1rem 0 0;
-  color: #d8d8d8;
+  color: var(--ink);
   font-family: var(--ff-display);
   font-size: .9rem;
   font-weight: 500;
 }
 .footer__contact p { margin: 0 0 .45rem; }
-.footer__contact a { color: #c9c9c9; }
-.footer__contact a:hover { color: var(--orange); }
+.footer__contact a { color: var(--body); }
+.footer__contact a:hover { color: var(--orange-text); }
 
 /* Official FCA / Mopar Certified Collision Repair Facility mark. The artwork is
-   a white card in its own right, so it needs no tile behind it on the dark footer. */
+   a white card in its own right, so only its own hairline border shows against the footer. */
 .footer__cert { display: flex; justify-content: center; }
 .mopar {
   display: block;
@@ -687,10 +681,10 @@ a:hover { text-decoration: underline; }
   flex-wrap: wrap;
   gap: .4rem 1.5rem;
   justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid var(--line);
   padding-block: 1.3rem;
   font-size: .82rem;
-  color: #8f8f8f;
+  color: var(--muted);
 }
 .footer__bar p { margin: 0; }
 

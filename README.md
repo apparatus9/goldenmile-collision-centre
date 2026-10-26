@@ -48,11 +48,12 @@ Edge pixels are un-premultiplied against white so there is no halo on dark backg
 `assets/mopar-certified.png` is the official FCA artwork, *FCA-MOPAR-badge-logo-CANADA-ENG-updated-20160603.png*,
 downscaled to 1400px wide and otherwise untouched — brand marks are not recoloured or recropped.
 It appears twice: under the hero call button, and in the footer's centre column. The artwork is
-already a white card with its own border, so it needs no tile behind it on either dark ground.
+already a white card with its own border — it reads as a plaque against the dark hero, and against
+the white footer only that hairline border shows.
 
-The footer sits on near-black, where the navy "CHRYSLER" wordmark and the black make logos
-would disappear, so the footer logo is placed on a white tile matching the Mopar badge beside it.
-If you ever get a white/knockout version of the lockup, you can drop the tile (`.footer__logo`).
+The footer is white, so the lockup sits on it directly — no tile. That also keeps the white
+*inside* the artwork (the "MILE" wordmark, the sky behind the tree) on the same field as the
+background, which is how the lockup is drawn to be used.
 
 ## Before this goes live
 
